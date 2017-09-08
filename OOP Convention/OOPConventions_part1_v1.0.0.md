@@ -1,4 +1,4 @@
-#Visibility Modifiers
+# Visibility Modifiers
 
 - **Kotlin** have 4 **visibility modifiers: public, internal, protected, private.** But when we using we must define **visibility modifier** that have the smallest range of use.
 - If **visibility modifiers** is **public**, omitted it:
@@ -14,7 +14,7 @@ val name: String = "This is name"
 public val name: String = "This is name"
 ~~~
 
-#Class
+# Class
 - **Companion Object:** Define in top of **class**.
 
 **GOOD**
@@ -115,7 +115,7 @@ fun doNothing() {
 	...
 }
 ~~~ 
-#Data class
+# Data class
 Primary constructors in data classes should be written with a single property on each line, and not begin on the line of the class definition.
 
 **GOOD**
@@ -134,7 +134,7 @@ data class Person (val firstName: String,
                  val lastName: String,
                  var age: Int )
 ~~~ 
-#Generics
+# Generics
 When define an object of a generic class we must define type of that object.
 
 ~~~kotlin
