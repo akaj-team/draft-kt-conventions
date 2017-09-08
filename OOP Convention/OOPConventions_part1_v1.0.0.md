@@ -69,8 +69,8 @@ class Person (firstName: String, lastName: String) {
 	// TODO: Will update later
 ~~~
 
-#Function
-
+# Function
+ 
 - If a function returns Unit, the return type should be omitted.
 
 **GOOD**
