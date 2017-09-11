@@ -3,7 +3,7 @@
 - It should be placed at the beginning of its wrapper class.
 - Name of constant is upper case and  specified with keywords **const val**.
 
-**GOOD**
+**Recommended**
 
 ~~~kotlin
 class MyFragment: Fragment() {
@@ -14,7 +14,7 @@ class MyFragment: Fragment() {
 }
 ~~~
 
-**BAD**
+**Not recommended**
 
 ~~~kotlin
 class MyFragment: Fragment() {
@@ -27,7 +27,7 @@ class MyFragment: Fragment() {
 
 - When you want to use components in Companion object, you should call directly.
 
-**GOOD**
+**Recommended**
 
 ~~~kotlin
 class MyClass {
@@ -39,7 +39,7 @@ class MyClass {
 val x: Int = MyClass.NUMBER
 ~~~
 
-**BAD**
+**Not recommended**
 
 ~~~kotlin
 class MyClass {
@@ -56,7 +56,7 @@ val x: Int = MyClass.Companion.NUMBER
 - Extension function is used when actually needed.
 - Do not define extension function of a class in this class.
 
-**GOOD**
+**Recommended**
 
 ~~~kotlin
 class Person(val name: String) {
@@ -68,7 +68,7 @@ fun Person.setName(name: String) {
 }
 ~~~
 
-**BAD**
+**Not recommended**
 
 ~~~kotlin
 class Person(val name: String) {
@@ -80,14 +80,14 @@ class Person(val name: String) {
 
 - Extension property should not use **this** to access to properties of the object applied.
 
-**GOOD**
+**Recommended**
 
 ~~~kotlin
 val <T> List<T>.lastIndex: Int
    get() = size - 1
 ~~~
 
-**BAD**
+**Not recommended**
 
 ~~~kotlin
 val <T> List<T>.lastIndex: Int
@@ -103,7 +103,7 @@ val <T> List<T>.lastIndex: Int
 
 -  Paramaters should directly destructer without componentN()
 
-**GOOD**
+**Recommended**
 
 ~~~kotlin
 data class Person(var name: String, var age: Int) {
@@ -115,7 +115,7 @@ val (name, age) = person
 println("Name:$name,Age:$age")
 ~~~
 
-**BAD**
+**Not recommended**
 
 ~~~kotlin
 data class Person(var name: String, var age: Int) {
