@@ -1,12 +1,12 @@
-## HIGH_ORDER FUNCTION
+## HIGH-ORDER FUNCTION
 
-- Parameters in high-order function are placed in order: normal paramaters, functions
+- Parameters in high-order function are placed in order: normal paramaters, functions.
 
 **Recommended**
 
 ~~~kotlin
 fun <T> lock( lock: Lock, body: () -> T) {
-// ...
+   // ...
 }
 ~~~
 
@@ -14,7 +14,7 @@ fun <T> lock( lock: Lock, body: () -> T) {
 
 ~~~kotlin
 fun <T> lock(body: () -> T, lock: Lock) {
- // ...
+   // ...
 }
 
 ~~~
@@ -88,7 +88,7 @@ onClick("abc", { position, content ->
 
  onClick(fun(x: Int): Int {
             return x
-        })
+    })
 ~~~
 
 ## INLINE KEYWORD
