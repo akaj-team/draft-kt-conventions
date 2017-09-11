@@ -9,13 +9,13 @@
 **GOOD**
 
 ~~~kotlin
-var nameStudent: String
+var studentName: String
 ~~~
 
 **BAD**
 
 ~~~kotlin
-var NameStudent: String
+var StudentName: String
 ~~~
 
 ## Type Inference
@@ -82,7 +82,7 @@ else {
 **GOOD**
 
 ~~~kotlin
-when (anInput) {
+when (Input) {
 	1, 2 -> doSomethingForCaseOneOrTwo()
     3 -> doSomethingForCaseThree()
     else -> print("No case satisfied")
@@ -92,7 +92,7 @@ when (anInput) {
 **BAD**
 
 ~~~kotlin
-when (anInput) {
+when (Input) {
 	1 -> doSomeThingForCaseOne()
     2 -> doSomeThingForCaseOneOrTwo()
     3 -> doSomeThingForCaseThree()
