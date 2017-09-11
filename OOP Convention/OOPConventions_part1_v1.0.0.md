@@ -3,13 +3,13 @@
 - **Kotlin** have 4 **visibility modifiers: public, internal, protected, private.** But when we using we must define **visibility modifier** that have the smallest range of use.
 - If **visibility modifiers** is **public**, omitted it:
 
-**GOOD**
+**Recommended**
 
 ~~~kotlin
 val name: String = "This is name"
 ~~~
 
-**BAD**
+**Not recommended**
 
 ~~~kotlin
 public val name: String = "This is name"
@@ -19,7 +19,9 @@ public val name: String = "This is name"
 
 - **Constructor**: Initialize class properties as primary constructor parameters instead of in an init block.
 
-**GOOD**
+**
+
+**
 
 ~~~kotlin
 class Person (val firstName: String, val lastName) {
@@ -27,7 +29,7 @@ class Person (val firstName: String, val lastName) {
 }
 ~~~
 
-**BAD**
+**Not recommended**
 
 ~~~kotlin
 class Person (firstName: String, lastName: String) {
@@ -47,7 +49,7 @@ class Person (firstName: String, lastName: String) {
  
 - If a function returns Unit, the return type should be omitted.
 
-**GOOD**
+**Recommended**
 
 ~~~kotlin
 fun showText (text: String) {
@@ -55,7 +57,7 @@ fun showText (text: String) {
 }
 ~~~
 
-**BAD**
+**Not recommended**
 
 ~~~kotlin
 fun showText (text: String): Unit {
@@ -65,13 +67,13 @@ fun showText (text: String): Unit {
 
 - If the function only executes an expression, the expression should be placed on the declaration line.
 
-**GOOD**
+**Recommended**
 
 ~~~kotlin
 fun sum (a: Int, b: Int): Int = a + b
 ~~~
 
-**BAD**
+**Not recommended**
 
 ~~~kotlin
 fun sum (a: Int, b: Int): Int {
@@ -81,13 +83,13 @@ fun sum (a: Int, b: Int): Int {
 
 - If the function has an empty body, use the Unit type instead of empty bracket body.
 
-**GOOD**
+**Recommended**
 
 ~~~kotlin
 fun doNothing() = Unit
 ~~~
 
-**BAD**
+**Not recommended**
 
 ~~~kotlin
 fun doNothing() {
@@ -96,9 +98,11 @@ fun doNothing() {
 ~~~ 
 
 # Data class
+
 Only using data keyword when class need equals(), hashCode(), toString(), copy(), componentN() function. Example: Models class.
- 
+
 # Generics
+
 When define an object of a generic class we don't need define type of that object.
 
 ~~~kotlin
@@ -107,12 +111,13 @@ class Food<T>(kind: T) {
 }
 ~~~
 
-**GOOD**
+**Recommended**
 
 ~~~kotlin
 val food1 = Food("value")
 ~~~
-**BAD**
+
+**Not recommended**
 
 ~~~kotlin
 val food1: Food<String> = Food<String>("value")
