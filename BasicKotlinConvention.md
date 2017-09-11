@@ -8,38 +8,14 @@
 
 **GOOD**
 
-~~~Kotlin
-var nameStudent: String
+~~~kotlin
+var studentName: String
 ~~~
 
 **BAD**
 
-~~~
-var NameStudent: String
-~~~
-
-* All letters of constant name is `UPPERCASE`
-
-**GOOD**
-
-~~~
-class MainFragment: Fragment() {
-    companion object {
-        const val TYPE_VIEW_HEADER = 0
-        const val TYPE_VIEW_FOOTER = 1
-    }
-}
-~~~
-
-**BAD**
-
-~~~
-class MainFragment: Fragment() {
-    companion object {
-        val TypeViewHeader = 0
-        val TypeViewFooter = 1
-    }
-}
+~~~kotlin
+var StudentName: String
 ~~~
 
 ## Type Inference
@@ -48,33 +24,16 @@ class MainFragment: Fragment() {
 
 **GOOD**
 
-~~~
+~~~kotlin
 val something = YourType()
 val age = 21
 ~~~
 
 **BAD**
 
-~~~
+~~~kotlin
 val something: YourType = YourType()
 val age: Int = 21
-~~~
-
-## Constructor
-
-**GOOD**
-
-~~~
-class User(
-    public open var firstName: String,
-    public open var lastName: String
-) {}
-~~~
-
-**BAD**
-
-~~~
-class User(public open var firstName: String, public open var lastName: String){}
 ~~~
 
 ## Strings
@@ -83,13 +42,13 @@ class User(public open var firstName: String, public open var lastName: String){
 
 **GOOD**
 
-~~~
+~~~kotlin
 val name = "${user.firstName} ${user.lastName}"
 ~~~
 
 **BAD**
 
-~~~
+~~~kotlin
 val name = user.firstName + " " + user.lastName
 ~~~
 
@@ -97,8 +56,8 @@ val name = user.firstName + " " + user.lastName
 
 **GOOD**
 
-~~~
-if(someTest) {
+~~~kotlin
+if (someTest) {
 ...
 } else {
 ...
@@ -107,37 +66,11 @@ if(someTest) {
 
 **BAD**
 
-~~~
+~~~kotlin
 if (someTest) {
 ...
 }
 else {
-...
-}
-~~~
-
-## Loop
-
-* You don't have to write for loop because there is `forEach` in collection package of Kotlin
-
-**GOOD**
-
-~~~
-(0..9).forEach{
-...
-}
-
-// or if you want to know index
-
-(0..0).forEachIndexed{ index, value	->
-...
-}
-~~~
-
-**BAD**
-
-~~~
-for (i in 0..9){
 ...
 }
 ~~~
@@ -148,9 +81,9 @@ for (i in 0..9){
 
 **GOOD**
 
-~~~
-when (anInput) {
-	1, 2 -> doSomethingForCaseOneOrTwo()
+~~~kotlin
+when (Input) {
+    1, 2 -> doSomethingForCaseOneOrTwo()
     3 -> doSomethingForCaseThree()
     else -> print("No case satisfied")
 }
@@ -158,9 +91,9 @@ when (anInput) {
 
 **BAD**
 
-~~~
-when (anInput) {
-	1 -> doSomeThingForCaseOne()
+~~~kotlin
+when (Input) {
+    1 -> doSomeThingForCaseOne()
     2 -> doSomeThingForCaseOneOrTwo()
     3 -> doSomeThingForCaseThree()
 }
@@ -170,17 +103,32 @@ when (anInput) {
 
 **GOOD**
 
-~~~
+~~~kotlin
 dog as? Animal ?: throw IllegalArgumentException("not Animal!")
 dog.foo()
 ~~~
 
 **BAD**
 
-~~~
+~~~kotlin
 if (dog !is Animal) {
     throw IllegalArgumentException("not Animal!")
 }
 dog.foo()
 ~~~
-	
+
+##Collections
+
+* Should be used MutableList if that List change data in future
+
+**GOOD**
+
+~~~kotlin
+val students: MutableList<Int> = ArrayList()
+~~~
+
+**BAD**
+
+~~~kotlin
+val students :List<Int> = ArrayList()
+~~~
