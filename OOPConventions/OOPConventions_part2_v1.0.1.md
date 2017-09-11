@@ -25,7 +25,7 @@ class MyFragment: Fragment() {
 }
 ~~~
 
-- When you want to use components in Companion object, you should call directly.
+- When you want to use components in companion object, you should call directly.
 
 **Recommended**
 
@@ -78,7 +78,7 @@ class Person(val name: String) {
 }
 ~~~
 
-- Extension property should not use **this** to access to properties of the object applied.
+- Extension property should not use **this** keyword to access to properties of the object applied.
 
 **Recommended**
 
