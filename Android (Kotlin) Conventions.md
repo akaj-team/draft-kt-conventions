@@ -67,7 +67,7 @@ class SomeClass {
    var mTitle : String
    var mTextViewTitle : TextView
   
-   Override fun onCreate() {
+   override fun onCreate() {
    		. . .
    }
    
@@ -84,15 +84,15 @@ class SomeClass {
 If your class is extending an **Android components** such as an Activity or a Fragment, it is a good practice to order the override methods so that they **match the component’s lifecycle**. For example, if you have an Activity that implements **onCreate()**, **onDestroy()**, **onPause()** and **onResume()**, then the correct order is:
 
 ~~~kotlin
- class MainActivity : Activity(){
+ class MainActivity : Activity() {
   // Order matches Activity lifecycle
-  Override fun onCreate() {}
+  override fun onCreate() {}
 
-  Override fun onResume() {}
+  override fun onResume() {}
 
-  Override fun onPause() {}
+  override fun onPause() {}
 
-  Override fun onDestroy() {}
+  override fun onDestroy() {}
 }
 ~~~
 ### Method
