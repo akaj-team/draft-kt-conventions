@@ -151,3 +151,23 @@ a.equal(b)
 a == b
 a != b
 ~~~
+
+## This Expression
+
+* Don't use `this@label` if compiler uderstood that `this`
+
+**GOOD**
+
+~~~kotlin
+fun showName(name: String) {
+        this.name = name
+}
+~~~
+
+**BAD**
+
+~~~kotlin
+fun showName(name: String) {
+        this@Test.name = name
+}
+~~~
