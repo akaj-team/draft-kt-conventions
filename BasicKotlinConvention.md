@@ -25,14 +25,14 @@ var StudentName: String
 **GOOD**
 
 ~~~kotlin
-val something = YourType()
+val student = Student()
 val age = 21
 ~~~
 
 **BAD**
 
 ~~~kotlin
-val something: YourType = YourType()
+val student: Student = Student()
 val age: Int = 21
 ~~~
 
@@ -119,7 +119,8 @@ dog.foo()
 
 ## Collections
 
-* Should be used MutableList if that List change data in future
+* Should be used `MutableList` if that `List` change data in future
+* If you create the list to read only, you can use `List` instead of using `MutableList`
 
 **GOOD**
 
