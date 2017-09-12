@@ -139,14 +139,14 @@ val students :List<Int> = ArrayList()
 
 **GOOD**
 
-~~~
+~~~kotlin
 a.equal(b)
 !a.equal(b)
 ~~~
 
 **BAD**
 
-~~~
+~~~kotlin
 a == b
 a != b
 ~~~
