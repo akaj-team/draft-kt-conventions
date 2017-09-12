@@ -60,11 +60,11 @@ val x: Int = MyClass.Companion.NUMBER
 
 ~~~kotlin
 class Person(val name: String) {
-   // ...
+   // handle somethings
 }
 
 fun Person.setName(name: String) {
-   // ...
+   // handle somethings
 }
 ~~~
 
@@ -73,7 +73,7 @@ fun Person.setName(name: String) {
 ~~~kotlin
 class Person(val name: String) {
    fun Person.setName(name: String) {
-       // ...
+       // handle somethings
    }
 }
 ~~~
@@ -99,7 +99,7 @@ val <T> List<T>.lastIndex: Int
  + BitmapExtensions.kt
  + ...
 
-## DESTRUCTURING DECLARATIONS 
+## DESTRUCTURING DECLARATIONS
 
 -  Paramaters should directly destructer without componentN()
 
@@ -107,7 +107,7 @@ val <T> List<T>.lastIndex: Int
 
 ~~~kotlin
 data class Person(var name: String, var age: Int) {
-
+    // handle somethings
 }
 
 val person = Person("Nguyen Van A", 22)
@@ -119,7 +119,7 @@ println("Name:$name,Age:$age")
 
 ~~~kotlin
 data class Person(var name: String, var age: Int) {
-
+    // handle somethings
 }
 
 val person = Person("Nguyen Van A", 22)
