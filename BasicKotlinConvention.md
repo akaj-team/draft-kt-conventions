@@ -117,7 +117,7 @@ if (dog !is Animal) {
 dog.foo()
 ~~~
 
-##Collections
+## Collections
 
 * Should be used MutableList if that List change data in future
 
@@ -131,4 +131,22 @@ val students: MutableList<Int> = ArrayList()
 
 ~~~kotlin
 val students :List<Int> = ArrayList()
+~~~
+
+## Equality
+
+* Should be used equal instead of "==" operator
+
+**GOOD**
+
+~~~
+a.equal(b)
+!a.equal(b)
+~~~
+
+**BAD**
+
+~~~
+a == b
+a != b
 ~~~
