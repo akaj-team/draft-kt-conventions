@@ -19,13 +19,11 @@ public val name: String = "This is name"
 
 - **Constructor**: Initialize class properties as primary constructor parameters instead of in an init block.
 
-**
-
-**
+**Recommended**
 
 ~~~kotlin
 class Person (val firstName: String, val lastName) {
-    ...
+    // handle something
 }
 ~~~
 
@@ -41,7 +39,7 @@ class Person (firstName: String, lastName: String) {
 		this.lastName = lastName
   	}
 
-  	...
+  	// handle something
 }
 ~~~
 
@@ -93,7 +91,7 @@ fun doNothing() = Unit
 
 ~~~kotlin
 fun doNothing() {
-	...
+	// No opp
 }
 ~~~ 
 
@@ -114,11 +112,11 @@ class Food<T>(kind: T) {
 **Recommended**
 
 ~~~kotlin
-val food1 = Food("value")
+val fish = Food("Fish")
 ~~~
 
 **Not recommended**
 
 ~~~kotlin
-val food1: Food<String> = Food<String>("value")
+val fish: Food<String> = Food<String>("Fish")
 ~~~ 
