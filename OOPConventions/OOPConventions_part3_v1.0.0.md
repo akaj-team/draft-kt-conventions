@@ -6,7 +6,7 @@
 
 ~~~kotlin
 fun <T> lock( lock: Lock, body: () -> T) {
-   // ...
+   // handle somethings
 }
 ~~~
 
@@ -14,20 +14,20 @@ fun <T> lock( lock: Lock, body: () -> T) {
 
 ~~~kotlin
 fun <T> lock(body: () -> T, lock: Lock) {
-   // ...
+   // handle somethings
 }
 
 ~~~
 
 ## LAMBDA
 
--  Should ignore (), ->, name parameter and use **it** keyword to declare the parameter explicitly if the function has only  one parameter as lambda block.
+-  Should ignore **()**, **->**, **name parameter** and use **it** keyword to declare the parameter explicitly if the function has only  one parameter as lambda block.
 
 **Recommended**
 
 ~~~kotlin
 fun onClick(position: (Int) -> Unit) {
-   // ...
+   // handle somethings
 }
 
 onClick { println(it) }
@@ -37,19 +37,19 @@ onClick { println(it) }
 
 ~~~kotlin
 fun onClick(position: (Int) -> Unit) {
-   // ...
+   // handle somethings
 }
 
 onClick({ position -> println(position) })
 ~~~
 
-- Should place lambda block out of the () of the function if a function has more than one parameter.
+- Should place lambda block out of the round bracket of the function if a function has more than one parameter.
 
 **Recommended**
 
 ~~~kotlin
 fun onClick(x: String, data: (Int, String) -> Unit) {
-   // ...
+   // handle somethings
 }
 onClick("abc") { position, content ->
    println("Position: $position, Content: $content")
@@ -60,7 +60,7 @@ onClick("abc") { position, content ->
 
 ~~~kotlin
 fun onClick(x: String, data: (Int, String) -> Unit) {
-   // ...
+   // handle somethings
 }
 
 onClick("abc", { position, content ->
@@ -73,7 +73,7 @@ onClick("abc", { position, content ->
 
 ~~~kotlin
  fun onClick(position: (Int) -> Int) {
-
+   // handle somethings
     }
     
  onClick { return@onClick it }
@@ -83,11 +83,12 @@ onClick("abc", { position, content ->
 
 ~~~kotlin
  fun onClick(position: (Int) -> Int) {
-
+   // handle somethings
     }
 
  onClick(fun(x: Int): Int {
-            return x
+   // handle somethings
+      return x
     })
 ~~~
 
@@ -100,16 +101,16 @@ onClick("abc", { position, content ->
 
 ~~~kotlin
 inline var bar: Bar
-    get() = ...
-    set(v) { ... }
+    get() = // handle somethings
+    set(v) { // handle somethings }
 ~~~
 
 **Not recommended**
 
 ~~~kotlin
 var bar: Bar
-    get() = ...
-    set(v) { ... }
+    get() = // handle somethings
+    set(v) { // handle somethings }
 ~~~
 
 
