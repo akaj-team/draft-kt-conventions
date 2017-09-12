@@ -159,15 +159,21 @@ a != b
 **GOOD**
 
 ~~~kotlin
-fun showName(name: String) {
+data class Test(var name: String) {
+
+    fun showName(name: String) {
         this.name = name
+    }
 }
 ~~~
 
 **BAD**
 
 ~~~kotlin
-fun showName(name: String) {
+data class Test(var name: String) {
+
+    fun showName(name: String) {
         this@Test.name = name
+    }
 }
 ~~~
