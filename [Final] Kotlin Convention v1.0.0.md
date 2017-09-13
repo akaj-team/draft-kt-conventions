@@ -77,15 +77,15 @@ class SomeClass {
    var mTextViewTitle : TextView
 
    override fun onCreate() {
-        . . .
+        ...
    }
 
    internal fun methodName () : Int {
-        . . .
+        ...
    }
 
    private fun setUpView() {
-        . . .
+        ...
    }
 }
 ~~~
