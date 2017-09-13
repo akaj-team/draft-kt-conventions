@@ -57,16 +57,17 @@ class SomeClass {
 ~~~
 * Class member ordering
 	There is no single correct solution for this but using a **logical** and **consistent** order will improve code learnability and readability. It is recommendable to use the following order:
-	1.	Constants
-	2.	Fields
-	3.	Constructors
-	4.	Override methods and callbacks
-	5.	Public methods
-	6.	Internal methods
-	7.	Private methods
-	8.	Inner classes and interfaces
+	* Constants
+	* Fields
+	* Constructors
+	* Override methods and callbacks
+	* Public methods
+	* Internal methods
+	* Private methods
+	* Inner classes and interfaces
 
 `( TODO: inner class can be change position and some positions others)`
+
 **Example**:
 
 ~~~kotlin
@@ -76,15 +77,15 @@ class SomeClass {
    var mTextViewTitle : TextView
 
    override fun onCreate() {
-   		. . .
+        . . .
    }
 
    internal fun methodName () : Int {
-   		. . .
+        . . .
    }
 
    private fun setUpView() {
-   		. . .
+        . . .
    }
 }
 ~~~
@@ -156,20 +157,20 @@ doSomething()
 
 ~~~kotlin
 try {
-	…
+    …
 } catch (et1 : ExceptionType1) {
-	…
+    …
 } catch (et2 : ExceptionType2) {
-	…
+    …
 }
 ~~~
 **BAD**
 
 ~~~kotlin
 try {
-	…
+    …
 } catch (e : Exception) {
-	…
+    …
 }
 ~~~
 ### Variable:
@@ -212,10 +213,10 @@ btnLogin, tvCaption
 
 * XML File Name:
 
-	1. Item for list view: `item_list _*`
-	2. Item for grid view: `item_grid _*`
-	3. Custom for view: `custom_*`
-	4. Custom for dialog: `dialog_*`
+	* Item for list view: `item_list _*`
+	* Item for grid view: `item_grid _*`
+	* Custom for view: `custom_*`
+	* Custom for dialog: `dialog_*`
 
 **Example:**
 
@@ -225,14 +226,14 @@ btnLogin, tvCaption
 ~~~
 
 * Image name
-	1. Icon: `ic_*`
-	2. Background: `bg_*`
-	3. Image: `img_*`
+	* Icon: `ic_*`
+	* Background: `bg_*`
+	* Image: `img_*`
 * Other naming
-	1. Model (example: Student, Teacher)
-	2. Activity: `*Activity` ( example: UserActivity)
-	3. Fragment: `*Fragment` (example: HomeFragment)
-	4. Apdater: `*Adapter` (example: PageAdapter)
+	* Model (example: Student, Teacher)
+	* Activity: `*Activity` ( example: UserActivity)
+	* Fragment: `*Fragment` (example: HomeFragment)
+	* Apdater: `*Adapter` (example: PageAdapter)
 * Do not make a deep hierarchy of `ViewGroups`. [here](https://github.com/futurice/android-best-practices#deephierarchy)
 * Also keep `dimens.xml` DRY, define generic constants. [here](https://github.com/futurice/android-best-practices#dimensxml)
 * Use multiple style files to avoid a single huge one. [here](https://github.com/futurice/android-best-practices#splitstyles)
@@ -413,7 +414,7 @@ a != b
 
 ### This Expression
 
-* Don't use `this@label` if compiler uderstood that `this`
+* Don't use `this@label` if compiler understood that `this`
 
 **GOOD**
 
