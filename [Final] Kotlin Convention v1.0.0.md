@@ -538,7 +538,7 @@ fun doNothing() {
 
 ### Data class
 
-Only using data keyword when class need equals(), hashCode(), toString(), copy(), componentN() function. Example: Models class.
+Only using **data** keyword when class need equals(), hashCode(), toString(), copy(), componentN() function. Example: Models class.
 
 ### Generics
 
@@ -565,7 +565,7 @@ val fish: Food<String> = Food<String>("Fish")
 ### Companion Object
 
 - It should be placed at the beginning of its wrapper class.
-- Name of constant is upper case and  specified with keywords **const val**.
+- Name of constants is upper case and  specified with keywords **const val**.
 
 **GOOD**
 
@@ -636,6 +636,8 @@ fun Person.setName(name: String) {
 
 ~~~kotlin
 class Person(val name: String) {
+   // handle somethings
+   
    fun Person.setName(name: String) {
        // handle somethings
    }
@@ -659,9 +661,9 @@ val <T> List<T>.lastIndex: Int
 ~~~
 
 - When adding extensions to external classes, create a extension package and make separate files for each type:
- + StringExtensions.kt
- + BitmapExtensions.kt
- + ...
+  + StringExtensions.kt
+  + BitmapExtensions.kt
+  + ...
 
 ### Destructuring Declarations
 
@@ -762,34 +764,10 @@ onClick("abc", { position, content ->
    println("Position: $position, Content: $content")
 })
 ~~~
-- Should use **return@label** in a lambda instead of return in an annonymous function.
-
-**GOOD**
-
-~~~kotlin
- fun onClick(position: (Int) -> Int) {
-   // handle somethings
-    }
-
- onClick { return@onClick it }
-~~~
-
-**BAD**
-
-~~~kotlin
- fun onClick(position: (Int) -> Int) {
-   // handle somethings
-    }
-
- onClick(fun(x: Int): Int {
-   // handle somethings
-      return x
-    })
-~~~
 
 ### Inline keyword
 
-- An inline function is used for smalls function(1 -> 5 lines of code), not used for big function.
+- An inline function is used for small functions(1 -> 5 lines of code), not used for big functions.
 - The inline modifier can be used on accessors of properties when we do not want to create a backing field.
 
 **GOOD**
