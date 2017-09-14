@@ -20,8 +20,8 @@ vn.asiantech.project
 	- service
 	- interfaces
 	- ui
- 	 + splash
- 	 + home
+ 	  + splash
+ 	  + home
 	- views
 ~~~
 ### Resource structure
@@ -38,12 +38,12 @@ vn.asiantech.project
 ### Class
 
 * First letter of classes is [UpperCase]().
-* Name of class only accept in range **[A-Z], [a-z]** and follow **Camel Case**.
-* Classes name must be **noun**.
-* For classes that extend an Android component, the name of the class should end with the name of the component; for example: SignInActivity, SignInFragment, ImageUploaderService, ChangePasswordDialog.
-* Open brace ‘ { ‘ appears at the end of the same line as the declaration statement.
-* Closing brace ‘ } ‘ starts a line by itself indented to match its corresponding opening statement, except when it is a null statement the ‘ } ‘ should appear immediately after the ‘ { ‘
-* Write KotlinDoc for each class, Kotlin doc must define what are classes working for.
+* Name of class only accept in range **[A-Z], [a-z]** and follow **CamelCase**.
+* Classes name must be **Noun**.
+* For classes that extend an Android component, the name of the class should end with the name of the component, for example: `SignInActivity`, `SignInFragment`, `ImageUploaderService`, `ChangePasswordDialog`...
+* Open brace `{` appears at the end of the same line as the declaration statement.
+* Closing brace `}` starts a line by itself indented to match its corresponding opening statement, except when it is a null statement the `}` should appear immediately after the `{`
+* Write `KotlinDoc` for each class, it must define what are classes working for.
 
 **Example**
 
@@ -59,14 +59,14 @@ class SomeClass {
 ~~~
 * Class member ordering
 	There is no single correct solution for this but using a **logical** and **consistent** order will improve code learnability and readability. It is recommendable to use the following order:
-	* Constants
-	* Fields
-	* Constructors
-	* Override methods and callbacks
-	* Public methods
-	* Internal methods
-	* Private methods
-	* Inner classes and interfaces
+	* `Constants`
+	* `Fields`
+	* `Constructors`
+	* `Override methods and callbacks`
+	* `Public methods`
+	* `Internal methods`
+	* `Private methods`
+	* `Inner classes and interfaces`
 
 `(TODO: inner class can be change position and some positions others)`
 
@@ -111,10 +111,10 @@ If your class is extending an **Android components** such as an Activity or a Fr
 
 * Short method content:
 Method content should be short and focus on the feature of method. Avoid repeating code.
-* Code line not over 80 characters. Except for inputting text or URL.
+* Code line not over `80 characters`. Except for inputting text or URL.
 * Method name must start with verb is first letter.
 * First letter of method name is **LOWERCASE**.
-* @SuppressWarnings: The ***@SupperssWarnings*** annotation should only be used under circumstances where it is impossible to eliminate a warning. If a warning passes this "**impossible to eliminate**" test, the ***@SuppressWarnings*** annotation must be used, so as to ensure that all warnings reflect actual problems in the code.
+* `@SuppressWarnings`: The `@SuppressWarnings` annotation should only be used under circumstances where it is impossible to eliminate a warning. If a warning passes this "**impossible to eliminate**" test, the `@SuppressWarnings` annotation must be used, so as to ensure that all warnings reflect actual problems in the code.
 
 **Example**
 
