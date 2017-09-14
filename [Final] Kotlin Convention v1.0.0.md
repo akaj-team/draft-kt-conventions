@@ -77,15 +77,15 @@ class SomeClass {
    var mTextViewTitle : TextView
 
    override fun onCreate() {
-        ...
+        // Handle somthing
    }
 
    internal fun methodName () : Int {
-        ...
+        // Handle somthing
    }
 
    private fun setUpView() {
-        ...
+        // Handle somthing
    }
 }
 ~~~
@@ -125,7 +125,7 @@ Method content should be short and focus on the feature of method. Avoid repeati
 * @throw ParseException exception
 */
 fun formatDate(dateFormat: String): String {
- …
+// Handle somthing
 }
 ~~~
 
@@ -157,20 +157,20 @@ doSomething()
 
 ~~~kotlin
 try {
-    …
+    // Handle somthing
 } catch (et1 : ExceptionType1) {
-    …
+    // Handle somthing
 } catch (et2 : ExceptionType2) {
-    …
+    // Handle somthing
 }
 ~~~
 **BAD**
 
 ~~~kotlin
 try {
-    …
+    // Handle somthing
 } catch (e : Exception) {
-    …
+    // Handle somthing
 }
 ~~~
 ### Variable:
@@ -318,9 +318,9 @@ val name = user.firstName + " " + user.lastName
 
 ~~~kotlin
 if (someTest) {
-...
+// Handle somthing
 } else {
-...
+// Handle somthing
 }
 ~~~
 
@@ -328,10 +328,10 @@ if (someTest) {
 
 ~~~kotlin
 if (someTest) {
-...
+// Handle somthing
 }
 else {
-...
+// Handle somthing
 }
 ~~~
 
