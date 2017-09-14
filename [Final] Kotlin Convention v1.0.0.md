@@ -20,8 +20,8 @@ vn.asiantech.project
 	- service
 	- interfaces
 	- ui
- 		 + screen_name_1
- 		 + screen_name_2
+ 	 + splash
+ 	 + home
 	- views
 ~~~
 ### Resource structure
