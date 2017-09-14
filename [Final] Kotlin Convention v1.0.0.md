@@ -135,16 +135,6 @@ fun formatDate(dateFormat: String): String {
 
 * Limit method block line less than **300** lines, limit method arguments less than **5**. Separate code if function has long line method.
 
-### Variable
-
-* All letters of constant name is UPPERCASE
-
-~~~kotlin
-companion object {
-    const val GOOGLE_HOME_URL = "http://www.google.com"
-}
-~~~
-
 ### XML Conventions
 * `View ID` is followed by camel-case
 
@@ -494,7 +484,7 @@ fun doNothing() = Unit
 
 ~~~kotlin
 fun doNothing() {
-    // No opp
+    // No-opp
 }
 ~~~
 
@@ -750,10 +740,8 @@ var bar: Bar
 
 
 ## Environments
-* Android Studio. [download]( https://developer.android.com/studio/index.html)
-* Setup Kotlin plugin.
-
-## Framework Conventions `(TODO: Will update later)`
+* Android Studio. [download](https://developer.android.com/studio/index.html)
+* Setup Kotlin plugin. [link](https://developer.android.com/kotlin/get-started.html?gclid=EAIaIQobChMIv9Cj9Zmk1gIVkiy9Ch0STQNsEAAYASAAEgKnsPD_BwE)
 
 ## Security Conventions
 * Remember cancel Thread, AsyncTask,… If go out other screen or turn back home screen.
