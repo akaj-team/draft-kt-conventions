@@ -458,7 +458,7 @@ public val name: String = "This is name"
 
 ### Class
 
-- **Constructor**: Initialize class properties as primary constructor parameters instead of in an init block.
+- **Constructor**: Initialize class properties as **primary constructor** parameters instead of in an **init** block.
 
 **GOOD**
 
@@ -486,7 +486,7 @@ class Person (firstName: String, lastName: String) {
 
 ### Function
 
-- If a function returns Unit, the return type should be omitted.
+- If a function returns **Unit**, the return type should be omitted.
 
 **GOOD**
 
@@ -520,7 +520,7 @@ fun sum (a: Int, b: Int): Int {
 }
 ~~~
 
-- If the function has an empty body, use the Unit type instead of empty bracket body.
+- If the function has an empty body, use the **Unit** type instead of empty bracket body.
 
 **GOOD**
 
@@ -538,11 +538,11 @@ fun doNothing() {
 
 ### Data class
 
-Only using data keyword when class need equals(), hashCode(), toString(), copy(), componentN() function. Example: Models class.
+Only using **data** keyword when class need equals(), hashCode(), toString(), copy(), componentN() function. Example: Models class.
 
 ### Generics
 
-When define an object of a generic class we don't need define type of that object.
+When define an object of a **generic** class we don't need define type of that object.
 
 ~~~kotlin
 class Food<T>(kind: T) {
