@@ -29,7 +29,11 @@ vn.asiantech.project
 | ------------- | ------------- | ------------- |
 | XML Layouts | `res/layout/`  | This is where we put our XML layout files.
 | XML Menus | `res/menu/` | This is where we put our AppBar menu actions.
-| Drawables | `res/drawable` | This is where we put images and XML drawables.
+| Anim | `res/anim/` | This is where we put animation (API < 11).
+| Animator | `res/animator/` | This is where we put animator (API > 11).
+| Drawables | `res/drawable` | This is where we put XML drawables.
+| Resource | `res/drawable-xhdpi`&#124;`xxhdpi`&#124;`xxxhdpi` | This is where we put images.
+| Asset | `res/assets` | This is where we put databases, raw datas, etc
 | Colors | `res/values/colors.xml` | This is where we put [color definitions](https://developer.android.com/guide/topics/resources/more-resources.html).
 | Dimensions | `res/values/dimens.xml` | This is where we put [dimension values](https://developer.android.com/guide/topics/resources/more-resources.html).
 | String | `res/values/strings.xml` | This is where we put strings.
@@ -160,35 +164,70 @@ btnLogin, tvCaption
 | `GalleryView`  | `gv`  | `CardView`  | `cardView` |
 | `LinearLayout`  | `ll`  | `ScrollView`  | `scrollView` |
 | `RelativeLayout`  | `rl`  | `ToolBar`  | `toolbar` |
-| `Calendar`  | `calendar`  |  | |
+| `Calendar`  | `calendar`  | `FrameLayout` | `fr` |
 
 
 * XML File Name
 
-	* Item for list view: `item_list _*`
-	* Item for grid view: `item_grid _*`
-	* Custom for view: `custom_*`
-	* Custom for dialog: `dialog_*`
+	* Item for ListView, ReyclerView, GridView: `item_*`.
+
+	* Custom for view: `custom_*`.
+
+	* Custom for dialog: `dialog_*`.
+
+	* Item of shape, selector, etc:
+	   * If item is a common using with least 2 item view :    `common_bg_*`.
+	   * Otherwise: `bg_ prefix _*`.
+
+    * Resource Name:
+       * Icon:
+           * Normal: `ic_*`.
+           * State: `ic_*_hover , ic_*_normal , ic_*_select`.
+       * Image:
+           * Name: `bg_*`.
+           * Folder: `drawable-xhdpi, drawable-xxhdpi, drawable-xxxhdpi`.
 
 **Example:**
 
 ~~~xml
 @+id/tvSubjectQuestions
-@+id/ivTakeCamera
+@+id/imgTakeCamera
 ~~~
 
-* Image name
-	* Icon: `ic_*`
-	* Background: `bg_*`
-	* Image: `img_*`
+* String resource name:
+    * Name: `ScreenName_Description`.
+    * Ex: `home_show_dialog_ok`.
+
+* Style resource:
+    * Name: Using `Camel` but upper first character.
+    * Ex: `StyleForButton` , `StyleForListContact`.
+    * Dimension can hard code in `style`.
+
+* Color resource:
+    * Hex color must using Lowercase letters.
+    * When define alpha (transparent), must to show percent of alpha.
+    * Name of color must folow `Camel` convention.
+
+~~~xml
+<color name="red">#f44336</color>
+<color name="redLight">#30f44336</color>
+~~~
+
 * Other naming
 	* Model (example: Student, Teacher)
 	* Activity: `*Activity` ( example: UserActivity)
 	* Fragment: `*Fragment` (example: HomeFragment)
 	* Adapter: `*Adapter` (example: PageAdapter)
+* `Padding` , `Margin` : accept to use hard code in XML file.
+
+* Text size must use `dp` instead `sp`.
+ 
 * Do not make a deep hierarchy of `ViewGroups`. [here](https://github.com/futurice/android-best-practices#deephierarchy)
+
 * Also keep `dimens.xml` DRY, define generic constants. [here](https://github.com/futurice/android-best-practices#dimensxml)
+
 * Use multiple style files to avoid a single huge one. [here](https://github.com/futurice/android-best-practices#splitstyles)
+
 * When an XML element doesn’t have any contents, you **must** use self closing tags.
 
 **GOOD**
@@ -288,7 +327,7 @@ else {
 
 ### When Expression
 
-* Unlike `switch` statements in Java, `when` statements do not fall through. Separate cases using commas if they should be handled the same way. Always include the else case.
+* Unlike `switch` statements in Java, `when` can be used either as an expression or as a statement. Separate cases using commas if they should be handled the same way. Always include the else case.
 
 **GOOD**
 
@@ -394,7 +433,7 @@ data class Test(var name: String) {
 ### Visibility Modifiers
 
 - **Kotlin** have 4 **visibility modifiers: public, internal, protected, private.** But when we using we must define **visibility modifier** that have the smallest range of use.
-- If **visibility modifiers** is **public**, omitted it:
+- If **visibility modifiers** is **public** we can ignore **public** keyword:
 
 **GOOD**
 
@@ -438,7 +477,7 @@ class Person (firstName: String, lastName: String) {
 
 ### Function
 
-- If a function returns **Unit**, the return type should be omitted.
+- If a function returns **Unit**, the return type should be ignored.
 
 **GOOD**
 
@@ -524,8 +563,8 @@ val fish: Food<String> = Food<String>("Fish")
 ~~~kotlin
 class MyFragment: Fragment() {
     companion object {
-        const val TYPE_VIEW_HEADER: Int = 0
-        const val TYPE_VIEW_FOOTER: Int = 1
+        const val TYPE_VIEW_HEADER = 0
+        const val TYPE_VIEW_FOOTER = 1
     }
 }
 ~~~
@@ -535,8 +574,8 @@ class MyFragment: Fragment() {
 ~~~kotlin
 class MyFragment: Fragment() {
     companion object {
-        val TypeViewHeader: Int = 0
-        val TypeViewFooter: Int = 1
+        val TypeViewHeader = 0
+        val TypeViewFooter = 1
     }
 }
 ~~~
@@ -548,7 +587,7 @@ class MyFragment: Fragment() {
 ~~~kotlin
 class MyClass {
    companion object {
-       const val NUMBER: Int = 10
+       const val NUMBER = 10
    }
 }
 
@@ -560,7 +599,7 @@ val x: Int = MyClass.NUMBER
 ~~~kotlin
 class MyClass {
    companion object {
-       const val NUMBER: Int = 10
+       const val NUMBER = 10
    }
 }
 
