@@ -55,10 +55,10 @@ vn.asiantech.project
 /**
 * Copyright © AsianTech Co., Ltd
 * Created by toannt on 06/09/2017.
-* SomeClass show information of user
+* SomeClass show informations of user
 */
 class SomeClass {
-    // Handle something
+	...
 }
 ~~~
 * Class member ordering
@@ -78,20 +78,19 @@ class SomeClass {
 
 ~~~kotlin
  class MainActivity : Activity() {
-
    var mTitle : String
    var mTextViewTitle : TextView
 
    override fun onCreate() {
-        // Handle something
+		...
    }
 
-   internal fun methodName () : Int {
-        // Handle something
+   internal fun setName() : String {
+		...
    }
 
    private fun setUpView() {
-        // Handle something
+		...
    }
 }
 ~~~
@@ -100,7 +99,7 @@ If your class is extending an **Android components** such as an Activity or a Fr
 
 ~~~kotlin
  class MainActivity : Activity() {
-  // Order matches Activity lifecycle
+
   override fun onCreate() {}
 
   override fun onResume() {}
@@ -126,14 +125,14 @@ Method content should be short and focus on the feature of method. Avoid repeati
 
 ~~~kotlin
 /**
-* Format date
+* Calculate sum of two integers
 *
-* @param dateFormat Date need format
-* @return the date formatted
-* @throw ParseException exception
+* @param a number
+* @param b number
+* @return the sum of a and b
 */
-fun formatDate(dateFormat: String): String {
-// Handle something
+fun calculateSum(a:Int, b:Int): Int {
+	...
 }
 ~~~
 
@@ -308,9 +307,9 @@ val name = user.firstName + " " + user.lastName
 
 ~~~kotlin
 if (someTest) {
-    // Handle something
+	...
 } else {
-    // Handle something
+	...
 }
 ~~~
 
@@ -318,10 +317,10 @@ if (someTest) {
 
 ~~~kotlin
 if (someTest) {
-    // Handle something
+	...
 }
 else {
-    // Handle something
+	...
 }
 ~~~
 
@@ -410,7 +409,6 @@ a != b
 
 ~~~kotlin
 data class Test(var name: String) {
-
     fun showName(name: String) {
         this.name = name
     }
@@ -421,7 +419,6 @@ data class Test(var name: String) {
 
 ~~~kotlin
 data class Test(var name: String) {
-
     fun showName(name: String) {
         this@Test.name = name
     }
@@ -455,7 +452,7 @@ public val name: String = "This is name"
 
 ~~~kotlin
 class Person (val firstName: String, val lastName) {
-    // Handle something
+	...
 }
 ~~~
 
@@ -470,8 +467,6 @@ class Person (firstName: String, lastName: String) {
 		this.firstName = firstName
 		this.lastName = lastName
   	}
-
-  	// Handle something
 }
 ~~~
 
@@ -523,7 +518,7 @@ fun doNothing() = Unit
 
 ~~~kotlin
 fun doNothing() {
-    // No-opp
+	...
 }
 ~~~
 
@@ -615,11 +610,11 @@ val x: Int = MyClass.Companion.NUMBER
 
 ~~~kotlin
 class Person(val name: String) {
-    // Handle something
+	...
 }
 
 fun Person.setName(name: String) {
-    // Handle something
+	...
 }
 ~~~
 
@@ -627,10 +622,9 @@ fun Person.setName(name: String) {
 
 ~~~kotlin
 class Person(val name: String) {
-    // Handle something
-   
+	...
    fun Person.setName(name: String) {
-        // Handle something
+		...
    }
 }
 ~~~
@@ -664,7 +658,7 @@ val <T> List<T>.lastIndex: Int
 
 ~~~kotlin
 data class Person(var name: String, var age: Int) {
-    // Handle something
+	...
 }
 
 val person = Person("Nguyen Van A", 22)
@@ -676,7 +670,7 @@ println("Name:$name,Age:$age")
 
 ~~~kotlin
 data class Person(var name: String, var age: Int) {
-    // Handle something
+	...
 }
 
 val person = Person("Nguyen Van A", 22)
@@ -694,7 +688,7 @@ println("Name:$name,Age:$age")
 
 ~~~kotlin
 fun <T> lock( lock: Lock, body: () -> T) {
-    // Handle something
+	...
 }
 ~~~
 
@@ -702,7 +696,7 @@ fun <T> lock( lock: Lock, body: () -> T) {
 
 ~~~kotlin
 fun <T> lock(body: () -> T, lock: Lock) {
-    // Handle something
+	...
 }
 
 ~~~
@@ -715,7 +709,7 @@ fun <T> lock(body: () -> T, lock: Lock) {
 
 ~~~kotlin
 fun onClick(position: (Int) -> Unit) {
-    // Handle something
+	...
 }
 
 onClick { println(it) }
@@ -725,7 +719,7 @@ onClick { println(it) }
 
 ~~~kotlin
 fun onClick(position: (Int) -> Unit) {
-    // Handle something
+	...
 }
 
 onClick({ position -> println(position) })
@@ -737,7 +731,7 @@ onClick({ position -> println(position) })
 
 ~~~kotlin
 fun onClick(x: String, data: (Int, String) -> Unit) {
-    // Handle something
+	...
 }
 onClick("abc") { position, content ->
    println("Position: $position, Content: $content")
@@ -748,7 +742,7 @@ onClick("abc") { position, content ->
 
 ~~~kotlin
 fun onClick(x: String, data: (Int, String) -> Unit) {
-    // Handle something
+	...
 }
 
 onClick("abc", { position, content ->
@@ -765,16 +759,16 @@ onClick("abc", { position, content ->
 
 ~~~kotlin
 inline var bar: Bar
-    get() = // Handle something
-    set(v) { // Handle something }
+    get() = ...
+    set(v) {...}
 ~~~
 
 **BAD**
 
 ~~~kotlin
 var bar: Bar
-    get() = // Handle something
-    set(v) { // Handle something }
+    get() = ...
+    set(v) {...}
 ~~~
 
 
