@@ -1,4 +1,4 @@
-# Android Kotlin Conventions
+﻿# Android Kotlin Conventions
 
 ## Info
 
@@ -267,6 +267,26 @@ var studentName: String
 var StudentName: String
 ~~~
 
+* Use non-null value as much as possible
+* Property priority
+     1. non-null & val
+     2. non-null & var
+     3. nullable & var
+* Use a **lateinit** or **Delegates.notNull()** if you cannot set a initial value. **lateinit** is better than **Delegates.notNull()** because **Delegates.notNull()** uses reflection. But primitive values is not applied to **lateinit**.
+
+~~~kotlin
+// non-null & val
+private val hoge: Hoge = Hoge()
+private val drawablePadding: Int by lazy { activity.resources.getDimensionPixelSize(R.dimen.drawable_padding) }
+
+// non-null & var
+private lateinit var hoge: Hoge
+private var hoge: Hoge = Delegates.notNull()
+
+// nullable & var
+private var hoge: Hoge? = null
+~~~
+
 ### Type Inference
 
 * Type inference should be preferred where possible to explicitly decleard types
@@ -285,6 +305,29 @@ val student: Student = Student()
 val age: Int = 21
 ~~~
 
+* You can write a type if it is difficult to understand.
+
+**GOOD**
+
+~~~kotlin
+val hoge = 0   // Int
+val foo = 10L  // Long
+val bar = 100f // Float
+
+// return Point
+fun Display.getSize(): Point = Point().apply { getSize(this) }
+~~~
+
+**BAD**
+
+~~~kotlin
+val hoge = 0
+val foo = 10L
+val bar = 100f
+
+fun Display.getSize(): Point = Point().apply { getSize(this) }
+~~~
+
 ### Strings
 
 * Always prefer string interpolation if possible.
@@ -301,30 +344,60 @@ val name = "${user.firstName} ${user.lastName}"
 val name = user.firstName + " " + user.lastName
 ~~~
 
-### If Expression
+### !!
+
+* Do not use **!!**, it will erase the benefits of Kotlin.
+* You use it only when you want to explicitly raise a Null Pointer Exception.
+
+### If-else expression
+
+* Do not start a new line in variable declaration using if-else
 
 **GOOD**
 
 ~~~kotlin
-if (someTest) {
-	...
+val foo: Int = 5
+val bar = if(foo > 10) "kotlin" else "java"
+~~~
+
+**BAD**
+
+~~~kotlin
+val foo: Int = 5
+val bar = if (foo > 10) {
+    "kotlin"
 } else {
-	...
+    "java"
+}
+~~~
+
+### When Expression
+
+* Use **when** in case there are two or more branches of **if-else**.
+
+**GOOD**
+
+~~~kotlin
+val hoge = 10
+when {
+    hoge > 10 -> print("10")
+    hoge > 5 -> print("5")
+    else -> print("different")
 }
 ~~~
 
 **BAD**
 
 ~~~kotlin
-if (someTest) {
-	...
-}
-else {
-	...
+val hoge = 10
+if (hoge > 10) {
+ print("10")
+} else if (hoge > 5) {
+print("5")
+} else {
+print("different")
 }
 ~~~
-
-### When Expression
 
 * Unlike `switch` statements in Java, `when` can be used either as an expression or as a statement. Separate cases using commas if they should be handled the same way. Always include the else case.
 
@@ -383,6 +456,35 @@ val students: MutableList<Int> = ArrayList()
 val students :List<Int> = ArrayList()
 ~~~
 
+* When get an item in a list
+
+**GOOD**
+~~~kotlin
+val array = ArrayList<Int>()
+array[0]
+~~~
+
+**BAD**
+~~~kotlin
+val array = ArrayList<Int>()
+array.get(0)
+~~~
+
+### Use an IDE suggestion
+
+* When call the activity
+
+**GOOD**
+~~~kotlin
+activity.finish()
+~~~
+
+**BAD**
+~~~kotlin
+getActivity().finish()
+~~~
+
+
 ### Equality
 
 * Should be used `equal` instead of `==` operator
@@ -423,6 +525,71 @@ data class Test(var name: String) {
         this@Test.name = name
     }
 }
+~~~
+
+### Line break
+* Start a new line at `right vertical line` on Android studio. (About **130 characters**).
+* Start a new line by a symbol which are `, : { =` in case characters over vertical line.
+
+**GOOD**
+
+~~~kotlin
+fun getData(a: Int, b: Int, c: Int, d: Int, e: Int,
+     f: Int, g: Int) { ... }
+
+fun getData(a: Int, b: Int, c: Int, d: Int, e: Int) =
+     Math().apply { ... }
+
+data class Data(private val a: Int, private val b: Int) :
+     AbstractData() { ... }
+~~~
+
+**BAD**
+
+~~~kotlin
+fun getData(a: Int, b: Int, c: Int, d: Int, e: Int
+     , f: Int, g: Int) { ... }
+
+fun getData(a: Int, b: Int, c: Int, d: Int, e: Int)
+     =  Math().apply { ... }
+
+data class Data(private val a: Int, private val b: Int)
+     : AbstractData() { ... }
+~~~
+
+### Loop
+
+* You do not have to write for loop because there is `forEach` in collections package of Kotlin.
+
+**GOOD**
+
+~~~kotlin
+(0..9).forEach { ... }
+
+// if you want to know index
+(0..9).forEachIndexed { index, value -> ... }
+~~~
+
+**BAD**
+
+~~~kotlin
+for (i in 0..9) { ... }
+~~~
+
+### Use range
+
+**GOOD**
+
+~~~kotlin
+val char = 'K'
+if (char in 'A'..'Z') print("Hit!")
+~~~
+
+**BAD**
+
+~~~kotlin
+val char = 'K'
+if (char >= 'A' && 'c' <= 'Z') print("Hit!")
 ~~~
 
 ## OOP
@@ -521,6 +688,34 @@ fun doNothing() {
 	...
 }
 ~~~
+
+* Should use scope function
+
+**GOOD**
+
+~~~kotlin
+class Hoge {
+    fun fun1() {}
+    fun fun2() {}
+}
+val hoge = Hoge().apply {
+   fun1()
+   fun2()
+}
+~~~
+
+**BAD**
+
+~~~kotlin
+class Hoge {
+    fun fun1() {}
+    fun fun2() {}
+}
+val hoge = Hoge()
+hoge.fun1()
+hoge.fun2()
+~~~
+
 
 ### Data class
 
@@ -643,6 +838,26 @@ val <T> List<T>.lastIndex: Int
 ~~~kotlin
 val <T> List<T>.lastIndex: Int
    get() = this.size - 1
+~~~
+
+* Do not create extension functions in same class.
+
+**GOOD**
+
+~~~kotlin
+class Animal {
+   fun Person.foo() {
+   }
+}
+~~~
+
+**BAD**
+
+~~~kotlin
+class Animal {
+   fun Animal.foo() {
+   }
+}
 ~~~
 
 - When adding extensions to external classes, create a extension package and make separate files for each type:
@@ -770,6 +985,46 @@ var bar: Bar
     get() = ...
     set(v) {...}
 ~~~
+
+### Which use run or let
+
+* Use **let** to substitute into functions
+* Use **run** to use outside functions
+
+~~~kotlin
+class Foo
+class Bar(val foo: Foo)
+class Hoge {
+    fun fun1() {}
+    fun fun2(bar: Bar) {}
+    fun fun3(foo: Foo) {}
+}
+~~~
+
+**GOOD**
+
+~~~kotlin
+Hoge().run {    
+   fun1()
+   Foo().let {        
+       fun2(Bar(it))
+       fun3(it)
+   }
+}
+~~~
+
+**BAD**
+
+~~~kotlin
+Hoge().let {
+   it.fun1()
+   Foo().run {
+       it.fun2(Bar(this))
+       it.fun3(this)
+   }
+}
+~~~
+
 
 
 ## Environments
