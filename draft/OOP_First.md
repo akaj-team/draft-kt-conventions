@@ -98,7 +98,22 @@ fun doNothing() {
 # Data class
 
 Only using data keyword when class need equals(), hashCode(), toString(), copy(), componentN() function. Example: Models class.
+# Enum classes
+An enum with no functions and no documentation on its constants may optionally be formatted as a single line.
+~~~kotlin
+enum class Answer { YES, NO, MAYBE }
+~~~
+When the constants in an enum are placed on separate lines, a blank line is not required between them except in the case where they define a body.
+~~~kotlin
+enum class Answer {
+    YES,
+    NO,
 
+    MAYBE {
+        override fun toString() = """¯\_(ツ)_/¯"""
+    }
+}
+~~~
 # Generics
 
 When define an object of a generic class we don't need define type of that object.

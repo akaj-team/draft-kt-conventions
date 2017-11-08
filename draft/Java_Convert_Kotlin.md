@@ -26,6 +26,63 @@ vn.asiantech.project
 | Dimensions | `res/values/dimens.xml` | This is where we put [dimension values](https://developer.android.com/guide/topics/resources/more-resources.html). 
 | String | `res/values/strings.xml` | This is where we put strings.
 | Styles |` res/values/styles.xml`| This is where we put style values.
+### •	File structure
+A .kt file comprises of the following, in order:
+~~~kotlin
+Copyright and/or license header (optional)
+File-level annotations
+Package statement
+Import statements
+Top-level declarations
+~~~
+   * ##### Copyright and/or license header (optional)
+   If a **copyright or license header** belongs in the file it should be placed at the immediate top in a **multi-line comment**
+   
+   **GOOD**
+   ~~~kotlin
+   /*
+    * Copyright 2017 Google, Inc.
+    *
+    * ...
+    */
+   ~~~
+   **BAD**
+   
+   ~~~kotlin
+   /**
+    * Copyright 2017 Google, Inc.
+    *
+    * ...
+    */
+   ~~~
+   
+   ~~~kotlin
+   // Copyright 2017 Google, Inc.
+   //
+   // ...
+   ~~~
+   * ##### File-level annotations
+   ~~~kotlin
+      /*
+       * @author at-...
+       * @since 20/11/2017
+       * @todo (optional)
+       * ...
+       */
+   ~~~
+   * ##### Package statements
+   Package names are all **lowercase**, with consecutive words simply concatenated together (no underscores).
+   ~~~kotlin
+   // Okay
+package com.example.deepspace
+// WRONG!
+package com.example.deepSpace
+// WRONG!
+package com.example.deep_space
+   ~~~
+   * ##### Import statements
+   **Wildcard** imports (of any type) are **not allowed.**
+   
 ### Class
 * First letter of classes is [UpperCase]().
 * Name of class only accept in range **[A-Z], [a-z]** and follow **Camel Case**.
@@ -39,10 +96,8 @@ vn.asiantech.project
 
 ~~~kotlin
 /**
-* Copyright © AsianTech Co., Ltd
-* Created by toannt on 06/09/2017.
-* SomeClass show information of user
-*/
+ * SomeClass show information of user
+ */
 class SomeClass {
 ...
 }
@@ -162,17 +217,6 @@ try {
 	…
 } catch (e : Exception) {
 	…
-}
-~~~
-### Variable:
-
-`TODO: Update more in future`
-
-* All  letters of constant name is UPPERCASE
-
-~~~kotlin
-companion object {
-    const val GOOGLE_HOME_URL = "http://www.google.com"
 }
 ~~~
 
