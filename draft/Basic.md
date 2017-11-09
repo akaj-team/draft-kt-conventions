@@ -1,4 +1,4 @@
-#BASIC KOTLIN CONVENTION
+# BASIC KOTLIN CONVENTION
 
 ### Variable:
 
@@ -75,20 +75,23 @@ else {
 ...
 }
 ~~~
+
   * An **if/else** conditional that is used as an expression may omit braces only if the entire expression fits on one line.
 
 **GOOD**
+
 ~~~kotlin
 val value = if (string.isEmpty()) 0 else 1  // Okay
 ~~~
+
 **BAD**
+
 ~~~kotlin
 val value = if (string.isEmpty())  // WRONG!
                 0
             else
                 1
 ~~~
-
 
 ## When Expression
 
@@ -192,7 +195,9 @@ data class Test(var name: String) {
     }
 }
 ~~~
+
 ## Where to break
+
 Code has a column limit of **100** characters. Any line that would exceed this limit must be line-wrapped
    
    * When a line is broken at an `assignment operator( =, +=, -=, *=, /=, %=)` the break comes after the symbol.
@@ -201,6 +206,7 @@ Code has a column limit of **100** characters. Any line that would exceed this l
 fun compare(a: String, b: String): Boolean =
             // ...
 ~~~
+
 * The break comes before the symbol `.` and `::` and `non-assignment operator`
    
 ~~~kotlin
@@ -209,6 +215,7 @@ addMarker(MarkerOptions()
                     .draggable(true)
                     .title(resources.getString(R.string.current_location))
 ~~~
+
 ~~~kotlin
 fun getSomething(
         a:String,
@@ -220,6 +227,7 @@ fun getSomething(
  // Do something..
 }
 ~~~
+
    * A `method` or `constructor` name stays attached to the open parenthesis ( `(` ) that follows it and a `comma (,) `stays attached to the token that precedes it.
    
 ~~~kotlin
@@ -231,6 +239,7 @@ fun <T> Iterable<T>.joinToString(
     // …
 }     
 ~~~
+
    * A lambda arrow (`->`) stays attached to the argument list what precedes it.
    
 ~~~kotlin
@@ -238,7 +247,9 @@ val printSummary = { username: String, age: String, score: Int ->
             println("User '$username' with '$age' get $score points.")
         }
 ~~~
+
 ## Annotation
+
    * Member or type annotations are placed on separate lines immediately prior to the annotated construct.
    
 ~~~kotlin
@@ -246,12 +257,14 @@ val printSummary = { username: String, age: String, score: Int ->
 @Target(FUNCTION, PROPERTY_SETTER, FIELD)
 annotation class Global
 ~~~
+
    * Annotations without arguments can be placed on a single line.
    
 ~~~kotlin
 @JvmField @Volatile
 var disposable: Disposable? = null
 ~~~
+
    * When only a single annotation without arguments is present it may be placed on the same line as the declaration
    
 ~~~kotlin

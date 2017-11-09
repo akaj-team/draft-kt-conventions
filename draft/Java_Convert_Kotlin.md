@@ -16,7 +16,9 @@ vn.asiantech.project
  		 + screen_name_2
 	- views
 ~~~
+
 ### •	Resource structure
+
 |  Name | Path  | Description |
 | ------------- | ------------- | ------------- |
 | XML Layouts | `res/layout/`  | This is where we put our XML layout files.
@@ -26,18 +28,24 @@ vn.asiantech.project
 | Dimensions | `res/values/dimens.xml` | This is where we put [dimension values](https://developer.android.com/guide/topics/resources/more-resources.html). 
 | String | `res/values/strings.xml` | This is where we put strings.
 | Styles |` res/values/styles.xml`| This is where we put style values.
+
 ### •	File structure
+
 A .kt file comprises of the following, in order:
+
 ~~~kotlin
 Copyright and/or license header (optional)
 Package statement
 Import statements
 Top-level declarations
 ~~~
+
    * ##### Copyright and/or license header (optional)
+   
    If a **copyright or license header** belongs in the file it should be placed at the immediate top in a **multi-line comment**
    
    **GOOD**
+   
    ~~~kotlin
    /*
     * Copyright 2017 Google, Inc.
@@ -49,6 +57,7 @@ Top-level declarations
     * ...
     */
    ~~~
+   
    **BAD**
    
    ~~~kotlin
@@ -76,6 +85,7 @@ Top-level declarations
    ~~~
 
    * ##### Package statements
+   
    Package names are all **lowercase**, with consecutive words simply concatenated together (no underscores).
    ~~~kotlin
    // Okay
@@ -87,6 +97,7 @@ package com.example.deep_space
    ~~~
    
 ### Class
+
 * First letter of classes is [UpperCase]().
 * Name of class only accept in range **[A-Z], [a-z]** and follow **Camel Case**.
 * Classes name must be **noun**.
@@ -107,6 +118,7 @@ class SomeClass {
 ...
 }
 ~~~
+
 * Class member ordering
 	There is no single correct solution for this but using a **logical** and **consistent** order will improve code learnability and readability. It is recommendable to use the following order: 
 	1.	Constants
@@ -156,7 +168,9 @@ If your class is extending an **Android components** such as an Activity or a Fr
   override fun onDestroy() {}
 }
 ~~~
+
 ### Method
+
 * Short method content:
 Method content should be short and focus on the feature of method. Avoid repeating code.
 * Code line not over 80 characters. Except for inputting text or URL.
@@ -198,11 +212,13 @@ fun formatDate(dateFormat: String): String {
 if (…)
 doSomething()
 ~~~
+
 * Use `// TODO` for dummy data or need to change later.
 
 ~~~kotlin
 // TODO Remove after api finish      
 ~~~
+
 * Catch exception.
 
 **GOOD**
@@ -220,6 +236,7 @@ finally {
     …
 }
 ~~~
+
 **BAD**
 
 ~~~kotlin
@@ -235,11 +252,13 @@ finally {
 ~~~
 
 ### XML Conventions
+
 * `View ID` is followed by camel-case, example: 
 
 ~~~kotlin
 btnLogin, tvCaption
 ~~~
+
 * Prefix for `id` in XML
 
 
@@ -296,6 +315,7 @@ btnLogin, tvCaption
 	android: layout_width="wrap_content"
 	android: layout_height="wrap_content" />
 ~~~
+
 **BAD**
 
 ~~~xml
@@ -308,11 +328,13 @@ btnLogin, tvCaption
 ~~~
 
 ## Environments
+
 * Android Studio. [download]( https://developer.android.com/studio/index.html)
 * Setup Kotlin plugin.
 
 ## Framework Conventions ( TODO: Will update later)
 ## Security Conventions
+
 * Remember cancel Thread, Asyntask, …if go out other screen or turn back home screen.
 * Remember enable minifyEnabled function in build.gradle while on release mode and config proguard carefully.
 
@@ -342,6 +364,7 @@ btnLogin, tvCaption
  keyAlias=sampletext1
  keyPassword= sampletext2
 ~~~
+
 * Verify input validation carefully.
 * Verify Runtime Permission function available in Android 6.0 and above carefully. [More details](https://developer.android.com/training/permissions/requesting.html)
 * Avoid leak memory. [More details](http://blog.nimbledroid.com/2016/09/06/stop-memory-leaks.html)
@@ -349,19 +372,23 @@ btnLogin, tvCaption
 * Avoid run time exception
 
 ## Code management practices and Dependency management practices
+
 * Introduce [Gradle Tool](https://github.com/futurice/android-best-practices#build-system)
 
 ## References
+
 * Android practices [Github](https://github.com/futurice/android-best-practices)
 * [KotlinLang](https://kotlinlang.org/docs/reference/) 
 * Android Developer [Page](https://developer.android.com/index.html)
 * Kotlin Code Coventions [Page](https://kotlinlang.org/docs/reference/coding-conventions.html)
 
 ## Code review Checklist
+
 * Pass Circle CI or Travis CI with checktyle findbug lint tools: 70% follow convention.
 * Pass Reviewer: 30% follow convention.
 * Github
 
 ## More References
+
 * [Android Boilerplate](https://github.com/ribot/android-boilerplate)
 * [Android folder structure](https://guides.codepath.com/android/Organizing-your-Source-Files#android-folder-structure)
