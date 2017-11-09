@@ -204,7 +204,7 @@ Code has a column limit of **100** characters. Any line that would exceed this l
 
 ~~~kotlin
 fun compare(a: String, b: String): Boolean =
-            // ...
+             …
 ~~~
 
 * The break comes before the symbol `.` and `::` and `non-assignment operator`
@@ -224,7 +224,7 @@ fun getSomething(
         d:String,
         ::isSomething
 ){
- // Do something..
+   …
 }
 ~~~
 
@@ -236,7 +236,7 @@ fun <T> Iterable<T>.joinToString(
         prefix: CharSequence = "",
         postfix: CharSequence = ""
 ): String {
-    // …
+     …
 }     
 ~~~
 
@@ -244,8 +244,8 @@ fun <T> Iterable<T>.joinToString(
    
 ~~~kotlin
 val printSummary = { username: String, age: String, score: Int ->
-            println("User '$username' with '$age' get $score points.")
-        }
+                       println("User '$username' with '$age' get $score points.")
+                   }
 ~~~
 
 ## Annotation
@@ -271,6 +271,6 @@ var disposable: Disposable? = null
 @Volatile var disposable: Disposable? = null
 
 @Test fun selectAll() {
-    // …
+     …
 }
 ~~~
