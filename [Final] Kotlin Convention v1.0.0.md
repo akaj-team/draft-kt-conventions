@@ -8,22 +8,6 @@
 
 
 ## Structure
-### Kotlin structure
-
-~~~kotlin
-vn.asiantech.project
-	- api
-	- models
-	- managers
-	- utils
-	- fragments
-	- service
-	- interfaces
-	- ui
- 	  + splash
- 	  + home
-	- views
-~~~
 ### Resource structure
 |  Name | Path  | Description |
 | ------------- | ------------- | ------------- |
@@ -78,8 +62,8 @@ class SomeClass {
 
 ~~~kotlin
  class MainActivity : Activity() {
-   var mTitle : String
-   var mTextViewTitle : TextView
+   var title : String
+   var textViewTitle : TextView
 
    override fun onCreate() {
 		...
