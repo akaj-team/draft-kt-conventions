@@ -30,7 +30,6 @@ vn.asiantech.project
 A .kt file comprises of the following, in order:
 ~~~kotlin
 Copyright and/or license header (optional)
-File-level annotations
 Package statement
 Import statements
 Top-level declarations
@@ -42,7 +41,11 @@ Top-level declarations
    ~~~kotlin
    /*
     * Copyright 2017 Google, Inc.
-    *
+    * 
+    * Licensed under the Apache License, Version 2.0 (the "License"); 
+    * you may not use this file except in compliance with the License. 
+    * You may obtain a copy of the License at: 
+    * http://www.apache.org/licenses/LICENSE-2.0
     * ...
     */
    ~~~
@@ -51,25 +54,27 @@ Top-level declarations
    ~~~kotlin
    /**
     * Copyright 2017 Google, Inc.
-    *
+    * 
+    * Licensed under the Apache License, Version 2.0 (the "License"); 
+    * you may not use this file except in compliance with the License. 
+    * You may obtain a copy of the License at: 
+    * http://www.apache.org/licenses/LICENSE-2.0
     * ...
     */
    ~~~
    
-   ~~~kotlin
-   // Copyright 2017 Google, Inc.
-   //
-   // ...
+   **BAD**
+   
+  ~~~kotlin
+    // Copyright 2017 Google, Inc.
+    // 
+    // Licensed under the Apache License, Version 2.0 (the "License"); 
+    // you may not use this file except in compliance with the License. 
+    // You may obtain a copy of the License at: 
+    // http://www.apache.org/licenses/LICENSE-2.0
+    //...
    ~~~
-   * ##### File-level annotations
-   ~~~kotlin
-      /*
-       * @author at-...
-       * @since 20/11/2017
-       * @todo (optional)
-       * ...
-       */
-   ~~~
+
    * ##### Package statements
    Package names are all **lowercase**, with consecutive words simply concatenated together (no underscores).
    ~~~kotlin
@@ -80,8 +85,6 @@ package com.example.deepSpace
 // WRONG!
 package com.example.deep_space
    ~~~
-   * ##### Import statements
-   **Wildcard** imports (of any type) are **not allowed.**
    
 ### Class
 * First letter of classes is [UpperCase]().
@@ -96,7 +99,9 @@ package com.example.deep_space
 
 ~~~kotlin
 /**
- * SomeClass show information of user
+ * Copyright © 2017 Asian Tech Co., Ltd.
+ * Created by at-... on 25/10/2017.
+ * ...
  */
 class SomeClass {
 ...
@@ -114,6 +119,7 @@ class SomeClass {
 	8.	Inner classes and interfaces 
 	
 `( TODO: inner class can be change position and some positions others)`
+
 **Example**:
 
 ~~~kotlin
@@ -209,6 +215,10 @@ try {
 } catch (et2 : ExceptionType2) {
 	…
 }
+
+finally {
+    …
+}
 ~~~
 **BAD**
 
@@ -217,6 +227,10 @@ try {
 	…
 } catch (e : Exception) {
 	…
+}
+
+finally {
+    …
 }
 ~~~
 
