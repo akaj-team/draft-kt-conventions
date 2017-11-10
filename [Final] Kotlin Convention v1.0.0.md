@@ -1,29 +1,13 @@
-﻿# Android Kotlin Conventions
+# Android Kotlin Conventions
 
 ## Info
 
 > `GOOD` --> **Recommended**
->
+
 > `BAD` --> **Not recommended**
 
 
 ## Structure
-### Kotlin structure
-
-~~~kotlin
-vn.asiantech.project
-	- api
-	- models
-	- managers
-	- utils
-	- fragments
-	- service
-	- interfaces
-	- ui
- 	  + splash
- 	  + home
-	- views
-~~~
 ### Resource structure
 |  Name | Path  | Description |
 | ------------- | ------------- | ------------- |
@@ -72,14 +56,14 @@ class SomeClass {
 	* `Private methods`
 	* `Inner classes and interfaces`
 
-`(TODO: inner class can be change position and some positions others)`
+`(TODO: inner class can be change position or some positions others)`
 
 **Example**
 
 ~~~kotlin
  class MainActivity : Activity() {
-   var mTitle : String
-   var mTextViewTitle : TextView
+   var title : String
+   var textViewTitle : TextView
 
    override fun onCreate() {
 		...
@@ -95,7 +79,7 @@ class SomeClass {
 }
 ~~~
 
-If your class is extending an **Android components** such as an Activity or a Fragment, it is a good practice to order the override methods so that they **match the component’s lifecycle**. For example, if you have an Activity that implements **onCreate()**, **onDestroy()**, **onPause()** and **onResume()**, then the correct order is:
+If your class is extending an **Android components** such as an Activity or a Fragment, it is a good practice to order the override methods so that they **match the component’s lifecycle**. For example, if you have an Activity that implements **onCreate()**, **onDestroy()**, **onPause()** and **onResume()**, correct order as below:
 
 ~~~kotlin
  class MainActivity : Activity() {
@@ -221,13 +205,13 @@ btnLogin, tvCaption
 
 * Text size must use `dp` instead `sp`.
  
-* Do not make a deep hierarchy of `ViewGroups`. [here](https://github.com/futurice/android-best-practices#deephierarchy)
+* **Do not** make a deep hierarchy of `ViewGroups`. [here](https://github.com/futurice/android-best-practices#deephierarchy)
 
 * Also keep `dimens.xml` DRY, define generic constants. [here](https://github.com/futurice/android-best-practices#dimensxml)
 
 * Use multiple style files to avoid a single huge one. [here](https://github.com/futurice/android-best-practices#splitstyles)
 
-* When an XML element doesn’t have any contents, you **must** use self closing tags.
+* When an `XML` element doesn’t have any contents, you **must** use self closing tags.
 
 **GOOD**
 
@@ -237,6 +221,7 @@ btnLogin, tvCaption
 	android: layout_width="wrap_content"
 	android: layout_height="wrap_content" />
 ~~~
+
 **BAD**
 
 ~~~xml
@@ -267,23 +252,23 @@ var studentName: String
 var StudentName: String
 ~~~
 
-* Use non-null value as much as possible
+* Use `non-null` value as much as possible
 * Property priority
-     1. non-null & val
-     2. non-null & var
-     3. nullable & var
+     1. `non-null & val`
+     2. `non-null & var`
+     3. `nullable & var`
 * Use a **lateinit** or **Delegates.notNull()** if you cannot set a initial value. **lateinit** is better than **Delegates.notNull()** because **Delegates.notNull()** uses reflection. But primitive values is not applied to **lateinit**.
 
 ~~~kotlin
-// non-null & val
+// Non-null & val
 private val hoge: Hoge = Hoge()
 private val drawablePadding: Int by lazy { activity.resources.getDimensionPixelSize(R.dimen.drawable_padding) }
 
-// non-null & var
+// Non-null & var
 private lateinit var hoge: Hoge
 private var hoge: Hoge = Delegates.notNull()
 
-// nullable & var
+// Nullable & var
 private var hoge: Hoge? = null
 ~~~
 
@@ -314,7 +299,7 @@ val hoge = 0   // Int
 val foo = 10L  // Long
 val bar = 100f // Float
 
-// return Point
+// Return Point
 fun Display.getSize(): Point = Point().apply { getSize(this) }
 ~~~
 
@@ -459,12 +444,14 @@ val students :List<Int> = ArrayList()
 * When get an item in a list
 
 **GOOD**
+
 ~~~kotlin
 val array = ArrayList<Int>()
 array[0]
 ~~~
 
 **BAD**
+
 ~~~kotlin
 val array = ArrayList<Int>()
 array.get(0)
@@ -475,15 +462,16 @@ array.get(0)
 * When call the activity
 
 **GOOD**
+
 ~~~kotlin
 activity.finish()
 ~~~
 
 **BAD**
+
 ~~~kotlin
 getActivity().finish()
 ~~~
-
 
 ### Equality
 
@@ -566,7 +554,7 @@ data class Data(private val a: Int, private val b: Int)
 ~~~kotlin
 (0..9).forEach { ... }
 
-// if you want to know index
+// If you want to know index
 (0..9).forEachIndexed { index, value -> ... }
 ~~~
 
@@ -716,7 +704,6 @@ hoge.fun1()
 hoge.fun2()
 ~~~
 
-
 ### Data class
 
 Only using **data** keyword when class need `equals()`, `hashCode()`, `toString()`, `copy()`, `componentN()` function.
@@ -863,7 +850,7 @@ class Animal {
 - When adding extensions to external classes, create a extension package and make separate files for each type:
   + `StringExtensions.kt`
   + `BitmapExtensions.kt`
-  + ...
+  + `...`
 
 ### Destructuring Declarations
 
@@ -893,7 +880,6 @@ val name = person.component1()
 val age = person.component2()
 println("Name:$name,Age:$age")
 ~~~
-
 
 ### High-Order Function
 
@@ -1025,8 +1011,6 @@ Hoge().let {
 }
 ~~~
 
-
-
 ## Environments
 * Android Studio. [download](https://developer.android.com/studio/index.html)
 * Setup Kotlin plugin. [link](https://developer.android.com/kotlin/get-started.html?gclid=EAIaIQobChMIv9Cj9Zmk1gIVkiy9Ch0STQNsEAAYASAAEgKnsPD_BwE)
@@ -1061,13 +1045,14 @@ Hoge().let {
  keyAlias=sampletext1
  keyPassword= sampletext2
 ~~~
+
 * Verify input validation carefully.
 * Verify Runtime Permission function available in Android 6.0 and above carefully. [More details](https://developer.android.com/training/permissions/requesting.html)
 * Avoid leak memory. [More details](http://blog.nimbledroid.com/2016/09/06/stop-memory-leaks.html)
 * Avoid out of memory. [More details](http://marcusjenkins.com/avoid-out-of-memory-problems-in-android/)
 * Avoid run time exception
 
-## Code management practices and Dependency management practices
+## Code management practices and dependency management practices
 * Introduce [Gradle Tool](https://github.com/futurice/android-best-practices#build-system)
 
 ## References
