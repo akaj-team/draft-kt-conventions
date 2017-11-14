@@ -23,28 +23,97 @@
 | String | `res/values/strings.xml` | This is where we put strings.
 | Styles |` res/values/styles.xml`| This is where we put style values.
 
+### •	File structure
+
+A .kt file comprises of the following, in order:
+
+~~~kotlin
+Copyright and/or license header (optional)
+Package statement
+Import statements
+Top-level declarations
+~~~
+
+   * ##### Copyright and/or license header (optional)
+   
+   If a **copyright or license header** belongs in the file it should be placed at the immediate top in a **multi-line comment**.
+   
+   **GOOD**
+   
+   ~~~kotlin
+   /*
+    * Copyright 2017 Google, Inc.
+    * 
+    * Licensed under the Apache License, Version 2.0 (the "License"); 
+    * you may not use this file except in compliance with the License. 
+    * You may obtain a copy of the License at: 
+    * http://www.apache.org/licenses/LICENSE-2.0
+    * ...
+    */
+   ~~~
+   
+   **BAD**
+   
+   ~~~kotlin
+   /**
+    * Copyright 2017 Google, Inc.
+    * 
+    * Licensed under the Apache License, Version 2.0 (the "License"); 
+    * you may not use this file except in compliance with the License. 
+    * You may obtain a copy of the License at: 
+    * http://www.apache.org/licenses/LICENSE-2.0
+    * ...
+    */
+   ~~~
+   
+   **BAD**
+   
+  ~~~kotlin
+    // Copyright 2017 Google, Inc.
+    // 
+    // Licensed under the Apache License, Version 2.0 (the "License"); 
+    // you may not use this file except in compliance with the License. 
+    // You may obtain a copy of the License at: 
+    // http://www.apache.org/licenses/LICENSE-2.0
+    // ...
+   ~~~
+
+   * ##### Package statements
+   
+   Package names are all **lowercase**, with consecutive words simply concatenated together (no underscores).
+  
+  ~~~kotlin
+   // Okay
+   package com.example.deepspace
+   // WRONG!
+   package com.example.deepSpace
+   // WRONG!
+   package com.example.deep_space
+   ~~~
+   
 ### Class
 
 * First letter of classes is [UpperCase]().
-* Name of class only accept in range **[A-Z], [a-z]** and follow **CamelCase**.
-* Classes name must be **Noun**.
-* For classes that extend an Android component, the name of the class should end with the name of the component, for example: `SignInActivity`, `SignInFragment`, `ImageUploaderService`, `ChangePasswordDialog`...
-* Open brace `{` appears at the end of the same line as the declaration statement.
-* Closing brace `}` starts a line by itself indented to match its corresponding opening statement, except when it is a null statement the `}` should appear immediately after the `{`
-* Write `KotlinDoc` for each class, it must define what are classes working for.
+* Name of class only accept in range **[A-Z], [a-z]** and follow **Camel Case**.
+* Classes name must be **noun**.
+* For classes that extend an Android component, the name of the class should end with the name of the component; for example: SignInActivity, SignInFragment, ImageUploaderService, ChangePasswordDialog.
+* Open brace ‘ { ‘ appears at the end of the same line as the declaration statement.
+* Closing brace ‘ } ‘ starts a line by itself indented to match its corresponding opening statement, except when it is a null statement the ‘ } ‘ should appear immediately after the ‘ { ‘
+* Write KotlinDoc for each class, Kotlin doc must define what are classes working for.
 
-**Example**
+**See Example**
 
 ~~~kotlin
 /**
-* Copyright © AsianTech Co., Ltd
-* Created by toannt on 06/09/2017.
-* SomeClass show informations of user
-*/
+ * Copyright © 2017 Asian Tech Co., Ltd.
+ * Created by at-... on 25/10/2017.
+ * ...
+ */
 class SomeClass {
-	...
+...
 }
 ~~~
+
 * Class member ordering
 	There is no single correct solution for this but using a **logical** and **consistent** order will improve code learnability and readability. It is recommendable to use the following order:
 	* `Constants`
@@ -62,14 +131,14 @@ class SomeClass {
 
 ~~~kotlin
  class MainActivity : Activity() {
-   var title : String
-   var textViewTitle : TextView
+   var title: String
+   var tvTitle: TextView
 
    override fun onCreate() {
 		...
    }
 
-   internal fun setName() : String {
+   internal fun setName(): String {
 		...
    }
 
@@ -98,7 +167,7 @@ If your class is extending an **Android components** such as an Activity or a Fr
 
 * Short method content:
 Method content should be short and focus on the feature of method. Avoid repeating code.
-* Code line not over `80 characters`. Except for inputting text or URL.
+* Code line not over `100 characters`. Except for inputting text or URL.
 * Method name must start with verb is first letter.
 * First letter of method name is **LOWERCASE**.
 * `@SuppressWarnings`: The `@SuppressWarnings` annotation should only be used under circumstances where it is impossible to eliminate a warning. If a warning passes this "**impossible to eliminate**" test, the `@SuppressWarnings` annotation must be used, so as to ensure that all warnings reflect actual problems in the code.
@@ -121,6 +190,61 @@ fun calculateSum(a:Int, b:Int): Int {
 ~~~
 
 * Limit method block line less than **300** lines, limit method arguments less than **5**. Separate code if function has long line method.
+* If statement convention.
+
+**GOOD**
+
+~~~kotlin
+ if (...) {
+     ...
+ }
+~~~
+
+**BAD**
+
+~~~kotlin
+if (...)
+    ...
+~~~
+
+* Use `// TODO` for dummy data or need to change later.
+
+~~~kotlin
+// TODO Remove after api finish      
+~~~
+
+* Catch exception.
+
+**GOOD**
+
+~~~kotlin
+try {
+	...
+} catch (et1: ExceptionType1) {
+	...
+} catch (et2: ExceptionType2) {
+	...
+}
+
+finally {
+   ...
+}
+~~~
+
+**BAD**
+
+~~~kotlin
+try {
+	...
+} catch (e: Exception) {
+	...
+}
+
+finally {
+   ...
+}
+~~~
+
 
 ### XML Conventions
 * `View ID` is followed by camel-case
@@ -236,7 +360,7 @@ btnLogin, tvCaption
 
 ### Variables
 
-* Write in **lowerCamelCase**
+* Write in **lowerCamelCase**.
 
 * Single character value must be avoided, except for temporary looping variables.
 
@@ -274,7 +398,7 @@ private var hoge: Hoge? = null
 
 ### Type Inference
 
-* Type inference should be preferred where possible to explicitly decleard types
+* Type inference should be preferred where possible to explicitly decleard types.
 
 **GOOD**
 
@@ -290,27 +414,32 @@ val student: Student = Student()
 val age: Int = 21
 ~~~
 
-* You can write a type if it is difficult to understand.
+### Underscores in numeric literals
+You can use underscores to make number constants more readable:
 
-**GOOD**
+* With `Decimals`: Should use the underscore to group the 3 elements together.
 
 ~~~kotlin
-val hoge = 0   // Int
-val foo = 10L  // Long
-val bar = 100f // Float
-
-// Return Point
-fun Display.getSize(): Point = Point().apply { getSize(this) }
+val oneMillion = 1_000_000
 ~~~
 
-**BAD**
+* With `Hexadecimals`: Should use the underscore to group the 2 elements together after `0x`
 
 ~~~kotlin
-val hoge = 0
-val foo = 10L
-val bar = 100f
+val hexBytes = 0xFF_EC_DE_5E
+~~~
 
-fun Display.getSize(): Point = Point().apply { getSize(this) }
+* With `Binaries`: Should use the underscore to group the 8 elements together after `0b`.
+
+~~~kotlin
+val bytes = 0b11010010_01101001_10010100_10010010
+~~~
+
+* **Note**: With special case, self-defined programer. Example:
+
+~~~kotlin
+val creditCardNumber = 1234_5678_9012_3456L
+val socialSecurityNumber = 999_99_9999L
 ~~~
 
 ### Strings
@@ -336,19 +465,19 @@ val name = user.firstName + " " + user.lastName
 
 ### If-else expression
 
-* Do not start a new line in variable declaration using if-else
+* Do not start a new line in variable declaration using if-else.
 
 **GOOD**
 
 ~~~kotlin
-val foo: Int = 5
+val foo = 5
 val bar = if(foo > 10) "kotlin" else "java"
 ~~~
 
 **BAD**
 
 ~~~kotlin
-val foo: Int = 5
+val foo = 5
 val bar = if (foo > 10) {
     "kotlin"
 } else {
@@ -426,22 +555,19 @@ dog.foo()
 
 ### Collections
 
-* Should be used `MutableList` if that `List` change data in future
-* If you create the list to read only, you can use `List` instead of using `MutableList`
-
-**GOOD**
+* Should be used `MutableList` if that `List` change data in future.
 
 ~~~kotlin
 val students: MutableList<Int> = ArrayList()
 ~~~
 
-**BAD**
+* If you create the list to read only, you can use `List` instead of using `MutableList`.
 
 ~~~kotlin
-val students :List<Int> = ArrayList()
+val students: List<Int> = ArrayList()
 ~~~
 
-* When get an item in a list
+* When get an item in a list.
 
 **GOOD**
 
@@ -475,13 +601,13 @@ getActivity().finish()
 
 ### Equality
 
-* Should be used `equal` instead of `==` operator
+* Should be used `equals` instead of `==` operator.
 
 **GOOD**
 
 ~~~kotlin
-a.equal(b)
-!a.equal(b)
+a.equals(b)
+!a.equals(b)
 ~~~
 
 **BAD**
@@ -493,7 +619,7 @@ a != b
 
 ### This Expression
 
-* Don't use `this@label` if compiler understood that `this`
+* Don't use `this@label` if compiler understood that `this`.
 
 **GOOD**
 
@@ -515,37 +641,86 @@ data class Test(var name: String) {
 }
 ~~~
 
-### Line break
-* Start a new line at `right vertical line` on Android studio. (About **130 characters**).
-* Start a new line by a symbol which are `, : { =` in case characters over vertical line.
+## Break line
 
-**GOOD**
-
-~~~kotlin
-fun getData(a: Int, b: Int, c: Int, d: Int, e: Int,
-     f: Int, g: Int) { ... }
-
-fun getData(a: Int, b: Int, c: Int, d: Int, e: Int) =
-     Math().apply { ... }
-
-data class Data(private val a: Int, private val b: Int) :
-     AbstractData() { ... }
-~~~
-
-**BAD**
+Start a new line at `right vertical line` on Android studio. (About **100 characters**). Any line that would exceed this limit must be line-wrapped
+   
+   * When a line is broken at an `assignment operator( =, +=, -=, *=, /=, %=)` the break comes after the symbol.
 
 ~~~kotlin
-fun getData(a: Int, b: Int, c: Int, d: Int, e: Int
-     , f: Int, g: Int) { ... }
-
-fun getData(a: Int, b: Int, c: Int, d: Int, e: Int)
-     =  Math().apply { ... }
-
-data class Data(private val a: Int, private val b: Int)
-     : AbstractData() { ... }
+fun compare(a: String, b: String): Boolean =
+             ...
 ~~~
 
-### Loop
+* The break comes before the symbol `.` and `::` and `non-assignment operator`
+   
+~~~kotlin
+addMarker(MarkerOptions()
+                    .position(currentLocation)
+                    .draggable(true)
+                    .title(resources.getString(R.string.current_location))
+~~~
+
+~~~kotlin
+fun getSomething(
+        a: String,
+        b: String,
+        c: String,
+        d: String,
+        ::isSomething
+){
+   ...
+}
+~~~
+
+   * A `method` or `constructor` name stays attached to the open parenthesis ( `(` ) that follows it and a `comma (,) `stays attached to the token that precedes it.
+   
+~~~kotlin
+fun <T> Iterable<T>.joinToString(
+        separator: CharSequence = "t",
+        prefix: CharSequence = "",
+        postfix: CharSequence = ""
+): String {
+    ...
+}     
+~~~
+
+   * A lambda arrow (`->`) stays attached to the argument list what precedes it.
+   
+~~~kotlin
+val printSummary = { username: String, age: String, score: Int ->
+                       println("User '$username' with '$age' get $score points.")
+                   }
+~~~
+
+## Annotation
+
+   * Member or type annotations are placed on separate lines immediately prior to the annotated construct.
+   
+~~~kotlin
+@Retention(SOURCE)
+@Target(FUNCTION, PROPERTY_SETTER, FIELD)
+annotation class Global
+~~~
+
+   * Annotations without arguments can be placed on a single line.
+   
+~~~kotlin
+@JvmField @Volatile
+var disposable: Disposable? = null
+~~~
+
+   * When only a single annotation without arguments is present it may be placed on the same line as the declaration.
+   
+~~~kotlin
+@Volatile var disposable: Disposable? = null
+
+@Test fun selectAll() {
+     ...
+}
+~~~
+
+### Loop (optional)
 
 * You do not have to write for loop because there is `forEach` in collections package of Kotlin.
 
@@ -590,13 +765,13 @@ if (char >= 'A' && 'c' <= 'Z') print("Hit!")
 **GOOD**
 
 ~~~kotlin
-val name: String = "This is name"
+val name = "This is name"
 ~~~
 
 **BAD**
 
 ~~~kotlin
-public val name: String = "This is name"
+public val name = "This is name"
 ~~~
 
 ### Class
@@ -666,18 +841,18 @@ fun sum (a: Int, b: Int): Int {
 **GOOD**
 
 ~~~kotlin
-fun doNothing() = Unit
+fun foo() = Unit
 ~~~
 
 **BAD**
 
 ~~~kotlin
-fun doNothing() {
+fun foo() {
 	...
 }
 ~~~
 
-* Should use scope function
+* Should use scope function.
 
 **GOOD**
 
@@ -707,6 +882,27 @@ hoge.fun2()
 ### Data class
 
 Only using **data** keyword when class need `equals()`, `hashCode()`, `toString()`, `copy()`, `componentN()` function.
+
+### Enum classes
+
+An enum with no functions and no documentation on its constants may optionally be formatted as a single line.
+
+~~~kotlin
+enum class Answer { YES, NO, MAYBE }
+~~~
+
+When the constants in an enum are placed on separate lines, a blank line is not required between them except in the case where they define a body.
+
+~~~kotlin
+enum class Answer {
+    YES,
+    NO,
+
+    MAYBE {
+        override fun toString() = """¯\_(ツ)_/¯"""
+    }
+}
+~~~
 
 ### Generics
 
@@ -854,7 +1050,7 @@ class Animal {
 
 ### Destructuring Declarations
 
--  Parameters should directly destructor without componentN()
+-  Parameters should directly destructor without componentN().
 
 **GOOD**
 
@@ -974,8 +1170,8 @@ var bar: Bar
 
 ### Which use run or let
 
-* Use **let** to substitute into functions
-* Use **run** to use outside functions
+* Use **let** to substitute into functions.
+* Use **run** to use outside functions.
 
 ~~~kotlin
 class Foo
