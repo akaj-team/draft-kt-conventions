@@ -75,19 +75,20 @@ Top-level declarations
     // you may not use this file except in compliance with the License. 
     // You may obtain a copy of the License at: 
     // http://www.apache.org/licenses/LICENSE-2.0
-    //...
+    // ...
    ~~~
 
    * ##### Package statements
    
    Package names are all **lowercase**, with consecutive words simply concatenated together (no underscores).
-   ~~~kotlin
+  
+  ~~~kotlin
    // Okay
-package com.example.deepspace
-// WRONG!
-package com.example.deepSpace
-// WRONG!
-package com.example.deep_space
+   package com.example.deepspace
+   // WRONG!
+   package com.example.deepSpace
+   // WRONG!
+   package com.example.deep_space
    ~~~
    
 ### Class
@@ -194,7 +195,7 @@ fun calculateSum(a:Int, b:Int): Int {
 **GOOD**
 
 ~~~kotlin
- if (…) {
+ if (...) {
   doSomething()
  }
 ~~~
@@ -202,7 +203,7 @@ fun calculateSum(a:Int, b:Int): Int {
 **BAD**
 
 ~~~kotlin
-if (…)
+if (...)
 doSomething()
 ~~~
 
@@ -218,15 +219,15 @@ doSomething()
 
 ~~~kotlin
 try {
-	…
+	...
 } catch (et1 : ExceptionType1) {
-	…
+	...
 } catch (et2 : ExceptionType2) {
-	…
+	...
 }
 
 finally {
-    …
+   ...
 }
 ~~~
 
@@ -234,13 +235,13 @@ finally {
 
 ~~~kotlin
 try {
-	…
+	...
 } catch (e : Exception) {
-	…
+	...
 }
 
 finally {
-    …
+   ...
 }
 ~~~
 
@@ -560,13 +561,13 @@ dog.foo()
 val students: MutableList<Int> = ArrayList()
 ~~~
 
-* If you create the list to read only, you can use `List` instead of using `MutableList`
+* If you create the list to read only, you can use `List` instead of using `MutableList`.
 
 ~~~kotlin
 val students :List<Int> = ArrayList()
 ~~~
 
-* When get an item in a list
+* When get an item in a list.
 
 **GOOD**
 
@@ -648,7 +649,7 @@ Start a new line at `right vertical line` on Android studio. (About **100 charac
 
 ~~~kotlin
 fun compare(a: String, b: String): Boolean =
-             …
+             ...
 ~~~
 
 * The break comes before the symbol `.` and `::` and `non-assignment operator`
@@ -668,7 +669,7 @@ fun getSomething(
         d:String,
         ::isSomething
 ){
-   …
+   ...
 }
 ~~~
 
@@ -680,7 +681,7 @@ fun <T> Iterable<T>.joinToString(
         prefix: CharSequence = "",
         postfix: CharSequence = ""
 ): String {
-     …
+    ...
 }     
 ~~~
 
@@ -709,13 +710,13 @@ annotation class Global
 var disposable: Disposable? = null
 ~~~
 
-   * When only a single annotation without arguments is present it may be placed on the same line as the declaration
+   * When only a single annotation without arguments is present it may be placed on the same line as the declaration.
    
 ~~~kotlin
 @Volatile var disposable: Disposable? = null
 
 @Test fun selectAll() {
-     …
+     ...
 }
 ~~~
 
@@ -902,7 +903,6 @@ enum class Answer {
     }
 }
 ~~~
-
 
 ### Generics
 
