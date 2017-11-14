@@ -131,14 +131,14 @@ class SomeClass {
 
 ~~~kotlin
  class MainActivity : Activity() {
-   var title : String
-   var textViewTitle : TextView
+   var title: String
+   var textViewTitle: TextView
 
    override fun onCreate() {
 		...
    }
 
-   internal fun setName() : String {
+   internal fun setName(): String {
 		...
    }
 
@@ -196,7 +196,7 @@ fun calculateSum(a:Int, b:Int): Int {
 
 ~~~kotlin
  if (...) {
-  doSomething()
+     ...
  }
 ~~~
 
@@ -204,7 +204,7 @@ fun calculateSum(a:Int, b:Int): Int {
 
 ~~~kotlin
 if (...)
-doSomething()
+    ...
 ~~~
 
 * Use `// TODO` for dummy data or need to change later.
@@ -220,9 +220,9 @@ doSomething()
 ~~~kotlin
 try {
 	...
-} catch (et1 : ExceptionType1) {
+} catch (et1: ExceptionType1) {
 	...
-} catch (et2 : ExceptionType2) {
+} catch (et2: ExceptionType2) {
 	...
 }
 
@@ -236,7 +236,7 @@ finally {
 ~~~kotlin
 try {
 	...
-} catch (e : Exception) {
+} catch (e: Exception) {
 	...
 }
 
@@ -435,7 +435,7 @@ val hexBytes = 0xFF_EC_DE_5E
 val bytes = 0b11010010_01101001_10010100_10010010
 ~~~
 
-* `Note`: With special case, self-defined programer. Example:
+* **Note**: With special case, self-defined programer. Example:
 
 ~~~kotlin
 val creditCardNumber = 1234_5678_9012_3456L
@@ -470,14 +470,14 @@ val name = user.firstName + " " + user.lastName
 **GOOD**
 
 ~~~kotlin
-val foo: Int = 5
+val foo = 5
 val bar = if(foo > 10) "kotlin" else "java"
 ~~~
 
 **BAD**
 
 ~~~kotlin
-val foo: Int = 5
+val foo = 5
 val bar = if (foo > 10) {
     "kotlin"
 } else {
@@ -564,7 +564,7 @@ val students: MutableList<Int> = ArrayList()
 * If you create the list to read only, you can use `List` instead of using `MutableList`.
 
 ~~~kotlin
-val students :List<Int> = ArrayList()
+val students: List<Int> = ArrayList()
 ~~~
 
 * When get an item in a list.
@@ -641,7 +641,7 @@ data class Test(var name: String) {
 }
 ~~~
 
-## Where to break
+## Break line
 
 Start a new line at `right vertical line` on Android studio. (About **100 characters**). Any line that would exceed this limit must be line-wrapped
    
@@ -663,10 +663,10 @@ addMarker(MarkerOptions()
 
 ~~~kotlin
 fun getSomething(
-        a:String,
-        b:String,
-        c:String,
-        d:String,
+        a: String,
+        b: String,
+        c: String,
+        d: String,
         ::isSomething
 ){
    ...
@@ -677,7 +677,7 @@ fun getSomething(
    
 ~~~kotlin
 fun <T> Iterable<T>.joinToString(
-        separator: CharSequence = ", ",
+        separator: CharSequence = "t",
         prefix: CharSequence = "",
         postfix: CharSequence = ""
 ): String {
@@ -720,7 +720,7 @@ var disposable: Disposable? = null
 }
 ~~~
 
-### Loop
+### Loop (optional)
 
 * You do not have to write for loop because there is `forEach` in collections package of Kotlin.
 
@@ -841,13 +841,13 @@ fun sum (a: Int, b: Int): Int {
 **GOOD**
 
 ~~~kotlin
-fun doNothing() = Unit
+fun foo() = Unit
 ~~~
 
 **BAD**
 
 ~~~kotlin
-fun doNothing() {
+fun foo() {
 	...
 }
 ~~~
