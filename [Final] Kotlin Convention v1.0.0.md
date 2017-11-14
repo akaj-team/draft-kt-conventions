@@ -132,7 +132,7 @@ class SomeClass {
 ~~~kotlin
  class MainActivity : Activity() {
    var title: String
-   var textViewTitle: TextView
+   var tvTitle: TextView
 
    override fun onCreate() {
 		...
