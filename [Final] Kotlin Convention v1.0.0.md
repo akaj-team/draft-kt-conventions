@@ -36,7 +36,7 @@ Top-level declarations
 
    * ##### Copyright and/or license header (optional)
    
-   If a **copyright or license header** belongs in the file it should be placed at the immediate top in a **multi-line comment**
+   If a **copyright or license header** belongs in the file it should be placed at the immediate top in a **multi-line comment**.
    
    **GOOD**
    
@@ -360,7 +360,7 @@ btnLogin, tvCaption
 
 ### Variables
 
-* Write in **lowerCamelCase**
+* Write in **lowerCamelCase**.
 
 * Single character value must be avoided, except for temporary looping variables.
 
@@ -398,7 +398,7 @@ private var hoge: Hoge? = null
 
 ### Type Inference
 
-* Type inference should be preferred where possible to explicitly decleard types
+* Type inference should be preferred where possible to explicitly decleard types.
 
 **GOOD**
 
@@ -429,7 +429,7 @@ val oneMillion = 1_000_000
 val hexBytes = 0xFF_EC_DE_5E
 ~~~
 
-* With `Binaries`: Should use the underscore to group the 8 elements together after `0b`
+* With `Binaries`: Should use the underscore to group the 8 elements together after `0b`.
 
 ~~~kotlin
 val bytes = 0b11010010_01101001_10010100_10010010
@@ -465,7 +465,7 @@ val name = user.firstName + " " + user.lastName
 
 ### If-else expression
 
-* Do not start a new line in variable declaration using if-else
+* Do not start a new line in variable declaration using if-else.
 
 **GOOD**
 
@@ -555,7 +555,7 @@ dog.foo()
 
 ### Collections
 
-* Should be used `MutableList` if that `List` change data in future
+* Should be used `MutableList` if that `List` change data in future.
 
 ~~~kotlin
 val students: MutableList<Int> = ArrayList()
@@ -601,7 +601,7 @@ getActivity().finish()
 
 ### Equality
 
-* Should be used `equals` instead of `==` operator
+* Should be used `equals` instead of `==` operator.
 
 **GOOD**
 
@@ -619,7 +619,7 @@ a != b
 
 ### This Expression
 
-* Don't use `this@label` if compiler understood that `this`
+* Don't use `this@label` if compiler understood that `this`.
 
 **GOOD**
 
@@ -852,7 +852,7 @@ fun doNothing() {
 }
 ~~~
 
-* Should use scope function
+* Should use scope function.
 
 **GOOD**
 
@@ -1050,7 +1050,7 @@ class Animal {
 
 ### Destructuring Declarations
 
--  Parameters should directly destructor without componentN()
+-  Parameters should directly destructor without componentN().
 
 **GOOD**
 
@@ -1170,8 +1170,8 @@ var bar: Bar
 
 ### Which use run or let
 
-* Use **let** to substitute into functions
-* Use **run** to use outside functions
+* Use **let** to substitute into functions.
+* Use **run** to use outside functions.
 
 ~~~kotlin
 class Foo
