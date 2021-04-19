@@ -167,7 +167,7 @@ If your class is extending an **Android components** such as an Activity or a Fr
 
 * Short method content:
 Method content should be short and focus on the feature of method. Avoid repeating code.
-* Code line not over `100 characters`. Except for inputting text or URL.
+* Function names not over `30 characters`. Except for inputting text or URL.
 * Method name must start with verb is first letter.
 * First letter of method name is **LOWERCASE**.
 * `@SuppressWarnings`: The `@SuppressWarnings` annotation should only be used under circumstances where it is impossible to eliminate a warning. If a warning passes this "**impossible to eliminate**" test, the `@SuppressWarnings` annotation must be used, so as to ensure that all warnings reflect actual problems in the code.
@@ -189,7 +189,7 @@ fun calculateSum(a:Int, b:Int): Int {
 }
 ~~~
 
-* Limit method block line less than **300** lines, limit method arguments less than **5**. Separate code if function has long line method.
+* Limit method block line less than **30** lines, limit method arguments less than **5**. Separate code if function has long line method.
 * If statement convention.
 
 **GOOD**
@@ -706,15 +706,13 @@ annotation class Global
    * Annotations without arguments can be placed on a single line.
    
 ~~~kotlin
-@JvmField @Volatile
-var disposable: Disposable? = null
+@JsonExclude @JvmField
+var x: String
 ~~~
 
    * When only a single annotation without arguments is present it may be placed on the same line as the declaration.
    
 ~~~kotlin
-@Volatile var disposable: Disposable? = null
-
 @Test fun selectAll() {
      ...
 }
